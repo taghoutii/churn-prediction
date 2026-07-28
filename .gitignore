@@ -1,4 +1,4 @@
-# Python-generated files
+ï»¿# Python-generated files
 __pycache__/
 *.py[oc]
 build/
@@ -9,7 +9,7 @@ wheels/
 # Virtual environments
 .venv
 
-# Data (PII — never committed)
+# Data (PII - never committed)
 data/raw/
 data/interim/
 data/processed/
@@ -27,3 +27,4 @@ mlartifacts/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
+
