@@ -1,6 +1,4 @@
 """
-Orchestrates loading + cleaning + merging the 4 raw sources into two interim
-tables at their natural grains:
   - subscriber_static: one row per subscriber_id (sociodemo + churn label/dates)
   - monthly_usage:     one row per (subscriber_id, period_date) (usage + bundle spend)
 """
@@ -26,13 +24,6 @@ def load_and_clean_all() -> dict[str, pd.DataFrame]:
 
 
 def build_subscriber_static(sociodemo: pd.DataFrame, churn: pd.DataFrame) -> pd.DataFrame:
-    """
-    One row per subscriber. Left join churn <- sociodemo since churn is the
-    ground-truth label table (every subscriber must have a label; sociodemo
-    is descriptive and should never drop a labeled subscriber even if a
-    demographic field is missing).
-    """
-    # msisdn exists in both — keep churn's copy, drop sociodemo's
     sociodemo_no_msisdn = sociodemo.drop(columns=["msisdn"])
 
     static = churn.merge(sociodemo_no_msisdn, on="subscriber_id", how="left", validate="one_to_one")
@@ -40,13 +31,6 @@ def build_subscriber_static(sociodemo: pd.DataFrame, churn: pd.DataFrame) -> pd.
 
 
 def build_monthly_usage(monthly_agg: pd.DataFrame, data_bundle: pd.DataFrame) -> pd.DataFrame:
-    """
-    One row per (subscriber_id, period_date). Left join data_bundle onto
-    monthly_agg (monthly_agg is the larger, more complete usage source).
-    A subscriber-period with no matching bundle row means no bundle purchase
-    that period — a real zero, not missing data — so revenu_furfait_data_dinar
-    is filled with 0 rather than left as NaN.
-    """
     usage = monthly_agg.merge(
         data_bundle.drop(columns=["periode"]),
         on=["subscriber_id", "period_date"],

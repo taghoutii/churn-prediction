@@ -1,8 +1,3 @@
-"""
-Raw data audit v3 — adds: (4) tenure-like numeric/categorical field profiling,
-(5) chronological consistency checks, (6) candidate churn-window distribution
-analysis (churner vs non-churner), (7) duplicate-key checks per table.
-"""
 import pandas as pd
 from churn.config import RAW_FILES
 
@@ -24,7 +19,8 @@ def profile_dataframe(df: pd.DataFrame, name: str) -> None:
     print("\n--- null counts ---")
     print(df.isna().sum())
 
-
+#DDATE HANDLING
+#there are 2 diff formats of dates in the raw data: "01JAN2020:00:00:00.000" and 202001. The following functions parse these formats into pandas datetime objects.
 def parse_sas_datetime(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, format=SAS_DATETIME_FMT, errors="coerce")
 
@@ -33,7 +29,7 @@ def parse_period(series: pd.Series) -> pd.Series:
     s = series.astype(str).str.replace("/", "", regex=False)
     return pd.to_datetime(s, format="%Y%m", errors="coerce")
 
-
+#scan every col to find date cols
 def find_candidate_date_columns(df: pd.DataFrame) -> tuple[list[str], list[str]]:
     period_cols = [c for c in df.columns if c.lower() in PERIOD_LIKE_NAMES]
     sas_cols = []
@@ -47,7 +43,7 @@ def find_candidate_date_columns(df: pd.DataFrame) -> tuple[list[str], list[str]]
             sas_cols.append(c)
     return sas_cols, period_cols
 
-
+#which % of cols parsed successfully as dates, and what is the range of those dates
 def profile_date_column(df: pd.DataFrame, col: str, parser) -> None:
     parsed = parser(df[col])
     n_total = len(df)
@@ -57,7 +53,8 @@ def profile_date_column(df: pd.DataFrame, col: str, parser) -> None:
     if n_valid > 0:
         print(f"    range: {parsed.min()}  ->  {parsed.max()}")
 
-
+#CHURN LABEL ANALYSIS
+#check whether churn label is consistent with the dates in the churn table. For example, if a subscriber has a churn date, then the churn label should be "yes". If a subscriber has no churn date, then the churn label should be "no".
 def audit_churn_relationship(df_churn: pd.DataFrame, sas_cols: list[str], label_col: str) -> pd.Series:
     print(f"  churn label unique values: {df_churn[label_col].unique()}")
     is_churn = df_churn[label_col].astype(str).str.strip().str.lower() == "yes"
@@ -68,9 +65,8 @@ def audit_churn_relationship(df_churn: pd.DataFrame, sas_cols: list[str], label_
         print(f"  [{col}] populated when churn=Yes: {pop_1:.1%} | populated when churn=No: {pop_0:.1%}")
     return is_churn
 
-
-# ---------- NEW: tenure-like numeric/categorical fields ----------
-
+#TENURE ANALYSIS
+#find any cols that look like they might be tenure-related and splits by churn / no churn to see if tenure is meaningful
 def find_tenure_like_columns(df: pd.DataFrame) -> list[str]:
     return [c for c in df.columns if any(p in c.lower() for p in TENURE_NAME_PATTERNS)]
 
@@ -90,13 +86,9 @@ def profile_tenure_column(df: pd.DataFrame, col: str, is_churn: pd.Series | None
             print(pd.crosstab(df[col], is_churn, normalize="index"))
 
 
-# ---------- NEW: chronological consistency checks ----------
+#DATA QUALITY CHECKS
 
 def check_chronological_order(df: pd.DataFrame, earlier_col: str, later_col: str) -> None:
-    """Flags rows where earlier_col > later_col — an impossible sequence
-    (e.g. churn recorded before activation). Only evaluated where BOTH
-    fields are non-null; nulls are a separate (coverage) issue, not an
-    ordering violation."""
     if earlier_col not in df.columns or later_col not in df.columns:
         return
     e = parse_sas_datetime(df[earlier_col])
@@ -110,20 +102,9 @@ def check_chronological_order(df: pd.DataFrame, earlier_col: str, later_col: str
     print(f"  [{earlier_col} <= {later_col}]  violations: {violations.sum()}/{n_both} "
           f"({violations.sum()/n_both:.2%} of rows with both dates present)")
 
-
-# ---------- NEW: exploratory inactivity-period analysis (NOT feature engineering) ----------
-
+#INACTIVITY CHECKS
+#how long since last activity using a single global reference date (the max period in the monthly usage data)
 def explore_inactivity_periods(df_churn: pd.DataFrame, is_churn: pd.Series, reference_date: pd.Timestamp) -> None:
-    """
-    EXPLORATORY ONLY. Measures inactivity periods using ONE global reference
-    date (max period in monthly usage data), purely to check whether recency-
-    of-activity separates churners from non-churners at all.
-
-    This is NOT the 'days_since_last_call' feature. The real feature (built in
-    src/churn/features/) will be computed per-snapshot-date, using only data
-    available before each snapshot, per subscriber — never a single global
-    reference date. Do not reuse this function's output as model input.
-    """
     print(f"\n  Using reference_date = {reference_date} (max period observed in monthly usage data, exploratory only)")
 
     last_call = parse_sas_datetime(df_churn["last_call_date"])
@@ -145,13 +126,8 @@ def explore_inactivity_periods(df_churn: pd.DataFrame, is_churn: pd.Series, refe
     print(churn_to_reference_days[is_churn].describe(percentiles=[.1, .25, .5, .75, .9]))
 
 
-# ---------- NEW: duplicate-key checks ----------
-
+#DUPLICATE-KEY CHECKS to avoid merge issues later
 def check_duplicate_keys(df: pd.DataFrame, name: str, key_cols: list[str]) -> None:
-    """Checks whether key_cols uniquely identify rows. If not, reports how many
-    rows are duplicated so we can tell 'repeated events to aggregate' apart
-    from 'genuine data quality issue' (near-full-row duplicates suggest the
-    latter; differing non-key values across the same key suggest the former)."""
     present = [c for c in key_cols if c in df.columns]
     if not present:
         return
