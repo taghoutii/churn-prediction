@@ -90,6 +90,20 @@ def compute_label(
     static_subset["label"] = in_window.astype(int)
     return static_subset[["subscriber_id", "label"]]
 
+DEMOGRAPHIC_COLS = ["age", "gender", "marital_status", "customer_language", "classe_anciennete"]
+
+
+def add_demographic_features(features: pd.DataFrame, population: pd.DataFrame) -> pd.DataFrame:
+    """
+    Pulls demographic fields straight from subscriber_static — no imputation,
+    no fill. Nulls stay as NaN/None on purpose: any missing-value treatment
+    (impute vs. keep 'Missing' as its own category) is a later decision,
+    fit on training data only. contact_city excluded
+    still unresolved (high-cardinality, inconsistent text) from EDA.
+    """
+    demo = population[["subscriber_id"] + DEMOGRAPHIC_COLS]
+    return features.merge(demo, on="subscriber_id", how="left")
+
 
 def build_snapshot(monthly_usage: pd.DataFrame, subscriber_static: pd.DataFrame) -> pd.DataFrame:
     snapshot_date = pd.Timestamp(SNAPSHOT_DATE)
@@ -97,6 +111,7 @@ def build_snapshot(monthly_usage: pd.DataFrame, subscriber_static: pd.DataFrame)
 
     features = compute_observation_features(monthly_usage, population, snapshot_date)
     features = add_recency_and_tenure_features(features, population, snapshot_date)
+    features = add_demographic_features(features, population)   # <-- new
     features = apply_log1p(features)
 
     label = compute_label(subscriber_static, population, snapshot_date)
