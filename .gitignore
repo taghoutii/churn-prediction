@@ -28,3 +28,5 @@ mlartifacts/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
+
+mlflow.db
