@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "anthropic>=0.121.0",
     "imbalanced-learn>=0.14.2",
     "lifelines>=0.30.3",
     "lightgbm>=4.7.0",

@@ -52,7 +52,6 @@ def compute_observation_features(
 def add_recency_and_tenure_features(
     features: pd.DataFrame, population: pd.DataFrame, snapshot_date: pd.Timestamp
 ) -> pd.DataFrame:
-    """days_since_last_call computed strictly from history before snapshot_date."""
     df = features.merge(
         population[["subscriber_id", "last_call_date", "date_activation"]],
         on="subscriber_id", how="left",
@@ -60,6 +59,7 @@ def add_recency_and_tenure_features(
     last_call_before_snapshot = df["last_call_date"].where(df["last_call_date"] < snapshot_date)
     df["days_since_last_call"] = (snapshot_date - last_call_before_snapshot).dt.days
     df["days_since_last_call"] = df["days_since_last_call"].fillna(OBSERVATION_WINDOW_DAYS + 1)
+    df["days_since_last_call"] = df["days_since_last_call"].clip(upper=OBSERVATION_WINDOW_DAYS + 1)
     df["tenure_days"] = (snapshot_date - df["date_activation"]).dt.days
     return df.drop(columns=["last_call_date", "date_activation"])
 
