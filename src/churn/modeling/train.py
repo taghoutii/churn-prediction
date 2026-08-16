@@ -74,12 +74,12 @@ def build_lightgbm() -> LGBMClassifier:
     """Tuned via RandomizedSearchCV, optimized for average_precision
     (PR-AUC) with SMOTE applied inside CV folds. See tuning_results.json."""
     return LGBMClassifier(
-        n_estimators=300,
+        n_estimators=700,
         max_depth=-1,
         num_leaves=127,
-        learning_rate=0.03,
+        learning_rate=0.01,
         subsample=1.0,
-        colsample_bytree=1.0,
+        colsample_bytree=0.7,
         random_state=RANDOM_STATE,
         n_jobs=-1,
         verbosity=-1,
