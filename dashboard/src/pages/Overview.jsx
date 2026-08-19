@@ -23,7 +23,11 @@ export default function Overview({ data }) {
           accent
         />
         <KpiCard label="Model in use" value={meta.model_used} sublabel={`version ${meta.model_version}`} />
-        <KpiCard label="High-risk customers" value={overview.risk_tiers.high.toLocaleString()} sublabel="30%+ estimated risk" />
+        <KpiCard
+          label="High-risk customers"
+          value={overview.risk_tiers.high.toLocaleString()}
+          sublabel={`${formatPercent(meta.risk_tier_bounds.medium_max, 0)}+ estimated risk`}
+        />
       </div>
 
       <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>

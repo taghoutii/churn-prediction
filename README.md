@@ -76,6 +76,26 @@ View tracked training runs (params, metrics, logged models) with:
 uv run mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
 
+## Dashboards
+
+Two standalone React apps consume static JSON snapshots exported from the trained
+models — neither makes live predictions or calls any API.
+
+| App | Audience | Model(s) shown | Regenerate its data with |
+|---|---|---|---|
+| `dashboard/` | Retention/business-facing | Tuned LightGBM only | `uv run python -m churn.explainability.export_dashboard_data` |
+| `model-lab/` | Engineer-facing, full comparison | Logistic Regression, XGBoost, LightGBM, Voting Ensemble | `uv run python -m churn.explainability.export_model_comparison_data` |
+
+Both export scripts fit fresh on `data/processed/train_balanced.parquet` and sample
+the same 150 test-set customers (`random_state=42`), so the two apps are directly
+comparable. Run either app with:
+
+```bash
+cd dashboard    # or: cd model-lab
+npm install
+npm run dev
+```
+
 ## Key design decisions
 
 - **Single snapshot date** (2024-12-01): features are computed as of one fixed point
