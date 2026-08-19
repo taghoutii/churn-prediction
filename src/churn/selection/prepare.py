@@ -1,27 +1,41 @@
 """
-Missing value handling + categorical encoding.
+Missing value handling + categorical dtype prep.
 
 - age: median-imputed using TRAIN median only; adds age_was_missing flag so
   the MNAR signal found in EDA isn't erased, just made explicit.
 - gender/marital_status: mode-imputed using TRAIN mode only, same
   fit-on-train-only pattern as age (fit_categorical_imputer /
-  apply_categorical_imputation) -- simple, low-cardinality demographic
-  fields with only a small amount of missingness, so filling with the
-  training set's most frequent value is preferred over carrying a
-  dedicated 'Missing' category/one-hot column for each.
-- customer_language/classe_anciennete: filled with 'Missing' as their own
-  category (not imputed). customer_language specifically is NOT
-  mode-imputed: its mode ('Anglais') is also the highest-churn language
-  group per EDA, so filling missing values with it would distort that
-  signal rather than making a neutral guess -- keeping 'Missing' as an
-  explicit category preserves it instead.
-- One-hot encoding is FIT on train's categories only; test is aligned to the
-  same columns (reindexed, filling 0 for any category absent in test/train).
+  apply_categorical_imputation).
+- customer_language: filled with 'Missing' as its own category (not
+  imputed). It is NOT mode-imputed: its mode ('Anglais') is also the
+  highest-churn language group per EDA, so filling missing values with it
+  would distort that signal rather than making a neutral guess -- keeping
+  'Missing' as an explicit category preserves it instead.
+  (classe_anciennete used to be handled the same way here, but was found
+  to be a near-perfect bucketing of tenure_days -- see
+  churn.features.snapshot's DEMOGRAPHIC_COLS comment -- and is excluded
+  from the modeling feature set entirely, so it never reaches this module.)
+- Categorical columns (gender, marital_status, customer_language) are
+  converted to pandas 'category' dtype and left NATIVE -- not one-hot
+  encoded -- because the two tree-based models
+  trained on this shared feature set (XGBoost, LightGBM) both support
+  categorical splits directly. This also avoids the SHAP-fragmentation
+  problem where a one-hot dummy is ranked independently of its parent
+  variable, and the "hidden baseline" problem of drop_first encoding.
+  Logistic Regression is the one model here without native categorical
+  support; it one-hot-encodes these same category-dtype columns itself,
+  inside its own sklearn Pipeline (see
+  churn.modeling.train.build_logistic_regression) -- prepare.py doesn't
+  need to produce a separate one-hot representation for it.
+- The set of allowed categories for each categorical column is FIT on
+  train only, then applied to test (any category present in test but not
+  train becomes NaN there) -- same fit-on-train-only discipline as
+  everything else in this module.
 """
 import pandas as pd
 
 MODE_IMPUTE_COLS = ["gender", "marital_status"]
-MISSING_CATEGORY_COLS = ["customer_language", "classe_anciennete"]
+MISSING_CATEGORY_COLS = ["customer_language"]
 CATEGORICAL_COLS = MODE_IMPUTE_COLS + MISSING_CATEGORY_COLS
 ID_AND_META_COLS = ["subscriber_id", "snapshot_date", "label"]
 
@@ -56,17 +70,17 @@ def fill_missing_as_category(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def fit_encode_categoricals(train: pd.DataFrame) -> list[str]:
-    """Returns the full list of one-hot column names learned from train,
-    so test can be aligned to exactly these columns."""
-    dummies = pd.get_dummies(train[CATEGORICAL_COLS], columns=CATEGORICAL_COLS, drop_first=True)
-    return list(dummies.columns)
+def fit_categorical_dtypes(train: pd.DataFrame) -> dict[str, list]:
+    """The set of category values for each categorical column, learned
+    from TRAIN only, so test is aligned to exactly these categories."""
+    return {col: sorted(train[col].dropna().unique().tolist()) for col in CATEGORICAL_COLS}
 
 
-def apply_encode_categoricals(df: pd.DataFrame, fitted_columns: list[str]) -> pd.DataFrame:
-    dummies = pd.get_dummies(df[CATEGORICAL_COLS], columns=CATEGORICAL_COLS, drop_first=True)
-    dummies = dummies.reindex(columns=fitted_columns, fill_value=0)
-    return pd.concat([df.drop(columns=CATEGORICAL_COLS), dummies], axis=1)
+def apply_categorical_dtypes(df: pd.DataFrame, categories: dict[str, list]) -> pd.DataFrame:
+    df = df.copy()
+    for col, cats in categories.items():
+        df[col] = pd.Categorical(df[col], categories=cats)
+    return df
 
 
 def prepare_features(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -86,10 +100,10 @@ def prepare_features(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd.DataFr
     train = fill_missing_as_category(train)
     test = fill_missing_as_category(test)
 
-    fitted_cols = fit_encode_categoricals(train)
-    print(f"one-hot columns learned from train: {len(fitted_cols)}")
+    categories = fit_categorical_dtypes(train)
+    print(f"categorical dtype categories (from train): { {k: len(v) for k, v in categories.items()} }")
 
-    train = apply_encode_categoricals(train, fitted_cols)
-    test = apply_encode_categoricals(test, fitted_cols)
+    train = apply_categorical_dtypes(train, categories)
+    test = apply_categorical_dtypes(test, categories)
 
     return train, test

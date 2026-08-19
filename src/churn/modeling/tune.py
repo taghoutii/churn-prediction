@@ -2,17 +2,20 @@
 Hyperparameter tuning via RandomizedSearchCV.
 
 IMPORTANT: tuning uses train_selected.parquet (real ~8.88% distribution),
-NOT train_balanced.parquet. SMOTE is applied INSIDE an imblearn Pipeline so
-resampling happens fresh per fold during cross-validation -- running CV on
-already-resampled data would let synthetic samples leak across folds, the
-same risk avoided in step 7.
+NOT train_balanced.parquet. SMOTENC is applied INSIDE an imblearn Pipeline
+so resampling happens fresh per fold during cross-validation -- running CV
+on already-resampled data would let synthetic samples leak across folds,
+the same risk avoided in step 7. SMOTENC (not plain SMOTE) because the
+feature set includes native pandas 'category' dtype columns for
+XGBoost/LightGBM's native categorical handling -- see balancing/balance.py
+for the same reasoning.
 
 Scoring uses average_precision (= PR-AUC), a better fit than F1/accuracy for
 this imbalanced problem, and consistent with the metric already used to
 compare models.
 """
 import pandas as pd
-from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import SMOTENC
 from imblearn.pipeline import Pipeline as ImbPipeline
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from xgboost import XGBClassifier
@@ -41,9 +44,14 @@ LGBM_PARAM_GRID = {
 }
 
 
-def build_search(estimator_name: str, n_iter: int = 30, cv_folds: int = 5) -> RandomizedSearchCV:
+def build_search(
+    estimator_name: str, categorical_indices: list[int], n_iter: int = 30, cv_folds: int = 5,
+) -> RandomizedSearchCV:
     if estimator_name == "xgboost":
-        clf = XGBClassifier(random_state=RANDOM_STATE, eval_metric="logloss", n_jobs=-1)
+        clf = XGBClassifier(
+            random_state=RANDOM_STATE, eval_metric="logloss",
+            enable_categorical=True, tree_method="hist", n_jobs=-1,
+        )
         param_grid = XGB_PARAM_GRID
     elif estimator_name == "lightgbm":
         clf = LGBMClassifier(random_state=RANDOM_STATE, n_jobs=-1, verbosity=-1)
@@ -52,7 +60,7 @@ def build_search(estimator_name: str, n_iter: int = 30, cv_folds: int = 5) -> Ra
         raise ValueError(estimator_name)
 
     pipeline = ImbPipeline([
-        ("smote", SMOTE(random_state=RANDOM_STATE)),
+        ("smote", SMOTENC(categorical_features=categorical_indices, random_state=RANDOM_STATE)),
         ("clf", clf),
     ])
 
@@ -72,7 +80,8 @@ def build_search(estimator_name: str, n_iter: int = 30, cv_folds: int = 5) -> Ra
 
 
 def tune_model(estimator_name: str, X_train: pd.DataFrame, y_train: pd.Series) -> RandomizedSearchCV:
-    search = build_search(estimator_name)
+    categorical_indices = [i for i, col in enumerate(X_train.columns) if str(X_train[col].dtype) == "category"]
+    search = build_search(estimator_name, categorical_indices)
     search.fit(X_train, y_train)
 
     print(f"\n--- {estimator_name} tuning results ---")

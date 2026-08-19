@@ -8,7 +8,16 @@ from sklearn.inspection import permutation_importance
 
 from churn.selection.prepare import ID_AND_META_COLS
 
-CORRELATION_THRESHOLD = 0.85
+# Lowered from 0.85: total_data_revenu_amount_mean and
+# revenu_furfait_data_dinar_mean sat at 0.823 -- just under the old cutoff,
+# both effectively saying "how much they spend on data" and splitting
+# explanatory credit between two near-duplicate features. Chose a lower
+# flat threshold over an importance-based tie-break (keep whichever of a
+# pair has higher importance) because that would need importance computed
+# on the FULL feature set before pruning, then again after -- more
+# restructuring for a small number of borderline pairs; simple threshold
+# change was the lower-risk option here.
+CORRELATION_THRESHOLD = 0.80
 
 
 def get_feature_cols(df: pd.DataFrame) -> list[str]:
@@ -22,6 +31,14 @@ def drop_correlated_features(
     """
     Drops one feature from each pair whose absolute correlation exceeds
     the specified threshold.
+
+    Categorical (dtype 'category') columns are intentionally SKIPPED here,
+    not pruned: Pearson correlation isn't a meaningful similarity measure
+    for nominal categories, and with only 3 low-cardinality categoricals in
+    this feature set (gender, marital_status, customer_language --
+    conceptually distinct dimensions), a categorical-association measure
+    (e.g. Cramer's V) isn't worth the added complexity here. They pass
+    through unpruned.
     """
 
     feature_cols = get_feature_cols(train)
@@ -32,6 +49,9 @@ def drop_correlated_features(
         .select_dtypes(include="number")
         .columns
     )
+    categorical_cols = [c for c in feature_cols if c not in numeric_cols]
+    if categorical_cols:
+        print(f"  skipping correlation pruning for categorical columns: {categorical_cols}")
 
     corr = train[numeric_cols].corr().abs()
     corr_values = corr.to_numpy()
@@ -68,9 +88,20 @@ def fit_rf_importance(train: pd.DataFrame, feature_cols: list[str], random_state
     """Fits a RandomForest on TRAIN only, returns both built-in and
     permutation importance (permutation is more reliable — it isn't biased
     toward high-cardinality/continuous features the way built-in importance
-    can be)."""
+    can be).
+
+    RandomForestClassifier has no native categorical support (unlike the
+    XGBoost/LightGBM models this feature set is actually trained for), so
+    categorical columns are one-hot-encoded LOCALLY here, purely to make
+    this importance ranking possible -- feature_cols / the returned kept
+    columns / the exported dataset are untouched and keep native category
+    dtype."""
     X = train[feature_cols]
     y = train["label"]
+
+    categorical_cols = list(X.select_dtypes(include="category").columns)
+    if categorical_cols:
+        X = pd.get_dummies(X, columns=categorical_cols, drop_first=True)
 
     rf = RandomForestClassifier(n_estimators=300, random_state=random_state, n_jobs=-1, class_weight="balanced")
     rf.fit(X, y)
@@ -78,7 +109,7 @@ def fit_rf_importance(train: pd.DataFrame, feature_cols: list[str], random_state
     perm = permutation_importance(rf, X, y, n_repeats=5, random_state=random_state, n_jobs=-1)
 
     importance_df = pd.DataFrame({
-        "feature": feature_cols,
+        "feature": list(X.columns),
         "rf_importance": rf.feature_importances_,
         "permutation_importance": perm.importances_mean, # type: ignore
     }).sort_values("permutation_importance", ascending=False)

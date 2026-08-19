@@ -23,7 +23,7 @@ def compute_shap_values(explainer: shap.TreeExplainer, X: pd.DataFrame):
 
 def get_top_customers_by_risk(model, X_test: pd.DataFrame, threshold: float, n: int = 3) -> pd.DataFrame:
     """Selects example customers at/above the working threshold (5:1 cost
-    ratio, threshold=0.30 for LightGBM per step 9) for per-customer SHAP demo."""
+    ratio, threshold=0.16 for LightGBM per step 9) for per-customer SHAP demo."""
     proba = model.predict_proba(X_test)[:, 1]
     flagged = X_test.copy()
     flagged["predicted_proba"] = proba
