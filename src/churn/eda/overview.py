@@ -3,6 +3,7 @@ Section 1 — Data overview: dimensions, variable types, missingness,
 key-variable distributions, and a duplicate-check re-confirmation on the
 merged interim tables.
 """
+import numpy as np
 import pandas as pd
 
 KEY_NUMERIC_VARS = {
@@ -36,6 +37,23 @@ def summarize_key_distributions(df: pd.DataFrame, cols: list[str], name: str) ->
     desc = df[present].describe(percentiles=[.01, .25, .5, .75, .99]).T
     print(desc)
     return desc
+
+
+def compare_log1p_skew(df: pd.DataFrame, cols: list[str]) -> pd.DataFrame:
+    """Skewness before/after a log1p transform, illustrative only -- the
+    real transform is applied later at the aggregated snapshot-feature level
+    (see churn.features.snapshot), not here. log1p is fixed/parameter-free,
+    so it's safe to compute directly on the full raw table without any
+    train-only fitting concern."""
+    rows = [{
+        "feature": col,
+        "skew_before": df[col].skew(),
+        "skew_after": np.log1p(df[col]).skew(),
+    } for col in cols]
+    out = pd.DataFrame(rows).set_index("feature")
+    print("\n--- Skewness before/after log1p (illustrative) ---")
+    print(out.round(2))
+    return out
 
 
 def confirm_no_duplicate_keys(df: pd.DataFrame, key_cols: list[str], name: str) -> int:
