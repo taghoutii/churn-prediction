@@ -49,20 +49,34 @@ def churn_rate_by_tenure(df: pd.DataFrame) -> pd.DataFrame:
     return grouped
 
 
-def churn_rate_by_age_bucket(df: pd.DataFrame, bin_width: int = 10) -> pd.DataFrame:
-    """Age is continuous — bucket it for a readable churn-rate-by-age view.
-    Rows with null age (post-cleaning) are excluded and reported separately."""
+def churn_rate_by_age_bucket(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate churn rate for three age groups:
+    under 18, 18-60, and over 60.
+    Rows with missing age are excluded and reported separately.
+    """
     valid = df.dropna(subset=["age"]).copy()
     n_excluded = len(df) - len(valid)
 
-    max_age = int(valid["age"].max())
-    bins = list(range(0, max_age + bin_width, bin_width))
-    valid["age_bucket"] = pd.cut(valid["age"], bins=bins, right=False)
+    valid["age_bucket"] = pd.cut(
+        valid["age"],
+        bins=[-float("inf"), 18, 60, float("inf")],
+        labels=["Under 18", "18-60", "Over 60"],
+        right=False,
+    )
 
-    grouped = valid.groupby("age_bucket", observed=True)["is_churn"].agg(["mean", "count"])
+    grouped = valid.groupby(
+        "age_bucket",
+        observed=True
+    )["is_churn"].agg(["mean", "count"])
+
     grouped.columns = ["churn_rate", "n_subscribers"]
-    print(f"\n--- Churn rate by age bucket (excluding {n_excluded} null-age rows) ---")
+
+    print(
+        f"\n--- Churn rate by age group "
+        f"(excluding {n_excluded} null-age rows) ---"
+    )
     print(grouped)
+
     return grouped
 
 
