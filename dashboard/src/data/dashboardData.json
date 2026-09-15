@@ -3,7 +3,7 @@
     "model_used": "Tuned LightGBM",
     "model_version": "lightgbm_v1",
     "snapshot_date": "2024-12-01",
-    "decision_threshold": 0.16,
+    "decision_threshold": 0.19,
     "risk_tier_bounds": {
       "low_max": 0.2,
       "medium_max": 0.5
@@ -13,7 +13,7 @@
   },
   "overview": {
     "total_customers": 117962,
-    "avg_probability": 0.12251428031744246,
+    "avg_probability": 0.12251469155440675,
     "risk_tiers": {
       "low": 94016,
       "medium": 9772,
@@ -36,7 +36,7 @@
     {
       "feature": "age",
       "short_label": "Age",
-      "mean_abs_shap": 1.2391932514535415,
+      "mean_abs_shap": 1.2391923796636646,
       "is_categorical_group": false
     },
     {
@@ -54,7 +54,7 @@
     {
       "feature": "recharge_amount_delta",
       "short_label": "Recharge amount, month over month",
-      "mean_abs_shap": 0.5839924664406437,
+      "mean_abs_shap": 0.5839924937626427,
       "is_categorical_group": false
     },
     {
@@ -66,19 +66,19 @@
     {
       "feature": "data_trafic_volume_mean",
       "short_label": "Data usage volume",
-      "mean_abs_shap": 0.5222851926637614,
+      "mean_abs_shap": 0.5222851926637615,
       "is_categorical_group": false
     },
     {
       "feature": "tenure_days",
       "short_label": "Account tenure",
-      "mean_abs_shap": 0.5160024545359434,
+      "mean_abs_shap": 0.516002842403214,
       "is_categorical_group": false
     },
     {
       "feature": "days_since_last_call",
       "short_label": "Time since last activity",
-      "mean_abs_shap": 0.33723429508681446,
+      "mean_abs_shap": 0.33723413659345824,
       "is_categorical_group": false
     }
   ],
@@ -101,7 +101,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 48.0,
-          "shap_value": -1.5733417611388893,
+          "shap_value": -1.5733427965211777,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -119,7 +119,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 227.0,
-          "shap_value": 1.1021614534034583,
+          "shap_value": 1.1021604180211704,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -154,7 +154,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 28.0,
-          "shap_value": -1.9295575649234191,
+          "shap_value": -1.9295586003057075,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -181,7 +181,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 215.0,
-          "shap_value": 1.026844220379131,
+          "shap_value": 1.0268431849968431,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -199,7 +199,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.4232558139534884,
-          "shap_value": 0.6282641292371179,
+          "shap_value": 0.6282658408336218,
           "direction": "increases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -209,7 +209,7 @@
     },
     {
       "subscriber_id": 2176502008,
-      "predicted_proba": 0.8842493668953814,
+      "predicted_proba": 0.8842493668953813,
       "risk_tier": "high",
       "top_factors": [
         {
@@ -225,7 +225,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 22.0,
-          "shap_value": -1.6917687433903192,
+          "shap_value": -1.6917638128506145,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -261,7 +261,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 313.0,
-          "shap_value": 0.40322476090481923,
+          "shap_value": 0.4032166102008555,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -296,7 +296,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 47.0,
-          "shap_value": -1.1453836381659477,
+          "shap_value": -1.1453836381659486,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -305,7 +305,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 10.543352620214202,
-          "shap_value": 1.0172979672980085,
+          "shap_value": 1.0172979672980087,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -333,7 +333,7 @@
     },
     {
       "subscriber_id": 2173656389,
-      "predicted_proba": 0.7693506717765287,
+      "predicted_proba": 0.7693506717765286,
       "risk_tier": "high",
       "top_factors": [
         {
@@ -349,7 +349,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 29.0,
-          "shap_value": -1.7409317774156021,
+          "shap_value": -1.7409317774156026,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -376,7 +376,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 444.0,
-          "shap_value": 0.44846571375056055,
+          "shap_value": 0.4484657137505605,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -411,7 +411,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 43.0,
-          "shap_value": -1.5142400341001625,
+          "shap_value": -1.5142400341001643,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -447,7 +447,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 153.0,
-          "shap_value": 0.31980976678956713,
+          "shap_value": 0.3198097667895697,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -473,7 +473,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 37.0,
-          "shap_value": -1.4633828917960372,
+          "shap_value": -1.463382891796039,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -500,7 +500,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 144.0,
-          "shap_value": 0.4809017644700675,
+          "shap_value": 0.48090176447007005,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -535,7 +535,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.6683879928998213,
+          "shap_value": -1.6683859076755185,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -571,7 +571,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 352.0,
-          "shap_value": 0.3727586656568128,
+          "shap_value": 0.3727530753444046,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -588,7 +588,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 57.0,
-          "shap_value": -1.7220870232413739,
+          "shap_value": -1.7220870232413763,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -624,7 +624,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.9861111111111112,
-          "shap_value": 0.49817305644339377,
+          "shap_value": 0.49817305644339244,
           "direction": "increases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -633,7 +633,7 @@
           "feature": "gender",
           "short_label": "Registered gender",
           "value": "F",
-          "shap_value": -0.4352340498499193,
+          "shap_value": -0.43523404984991937,
           "direction": "decreases_risk",
           "clause": "they're registered as female",
           "category": "demographic"
@@ -650,7 +650,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 43.0,
-          "shap_value": -1.850288900557942,
+          "shap_value": -1.8502889005579437,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -774,7 +774,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.817997711763182,
+          "shap_value": -1.8179977117631838,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -854,7 +854,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 48.0,
-          "shap_value": -1.4167446155575172,
+          "shap_value": -1.4167396850178129,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -898,7 +898,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 43.0,
-          "shap_value": -2.1388504118930984,
+          "shap_value": -2.138850411893098,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -934,7 +934,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 10.4057163290766,
-          "shap_value": 0.36395239476972197,
+          "shap_value": 0.36395239476972213,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -960,7 +960,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.7867332322317384,
+          "shap_value": -1.7867332322317397,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -978,7 +978,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 0.909853198444971,
+          "shap_value": 0.9098531984449709,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -996,7 +996,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 84.0,
-          "shap_value": 0.37241567585287116,
+          "shap_value": 0.3724156758528713,
           "direction": "increases_risk",
           "clause": "they've been active quite recently",
           "category": "recency"
@@ -1022,7 +1022,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 39.0,
-          "shap_value": -1.8515357739831664,
+          "shap_value": -1.8515336469711734,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1058,7 +1058,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.28,
-          "shap_value": 0.4155706043714854,
+          "shap_value": 0.4155727313834788,
           "direction": "increases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -1067,7 +1067,7 @@
           "feature": "recharge_amount_delta",
           "short_label": "Recharge amount, month over month",
           "value": 0.0,
-          "shap_value": -0.3439122473640312,
+          "shap_value": -0.3439122886400387,
           "direction": "decreases_risk",
           "clause": "how much they recharge has been going up recently",
           "category": "recharge"
@@ -1093,7 +1093,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 47.0,
-          "shap_value": -1.640376764579309,
+          "shap_value": -1.6403777999615987,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1129,7 +1129,7 @@
           "feature": "recharge_amount_delta",
           "short_label": "Recharge amount, month over month",
           "value": 0.0,
-          "shap_value": -0.31713587654303194,
+          "shap_value": -0.3171358604250974,
           "direction": "decreases_risk",
           "clause": "how much they recharge has been going up recently",
           "category": "recharge"
@@ -1155,7 +1155,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -1.583236962782982,
+          "shap_value": -1.5832369627829825,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1217,7 +1217,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 38.0,
-          "shap_value": 1.5005572542413868,
+          "shap_value": 1.500557254241387,
           "direction": "increases_risk",
           "clause": "they've been active quite recently",
           "category": "recency"
@@ -1226,7 +1226,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 41.0,
-          "shap_value": -1.1108995410195546,
+          "shap_value": -1.1108995410195672,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1235,7 +1235,7 @@
           "feature": "recharge_amount_delta",
           "short_label": "Recharge amount, month over month",
           "value": -6.90875477931522,
-          "shap_value": 1.0859796146073966,
+          "shap_value": 1.0859796146073963,
           "direction": "increases_risk",
           "clause": "how much they recharge has been dropping recently",
           "category": "recharge"
@@ -1263,14 +1263,14 @@
     },
     {
       "subscriber_id": 2160387709,
-      "predicted_proba": 0.4405628893447248,
+      "predicted_proba": 0.4405628893447249,
       "risk_tier": "medium",
       "top_factors": [
         {
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.9145809931418538,
+          "shap_value": -1.9145809931418543,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1315,7 +1315,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.07137254901960784,
-          "shap_value": -0.46538491350644595,
+          "shap_value": -0.4653849135064458,
           "direction": "decreases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -1332,7 +1332,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -1.847396875129981,
+          "shap_value": -1.8473968751299794,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1350,7 +1350,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 0.9785361675864377,
+          "shap_value": 0.9785361675864376,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -1377,7 +1377,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 6.159095388491933,
-          "shap_value": 0.5738545387786959,
+          "shap_value": 0.5738545387786957,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -1394,7 +1394,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 50.0,
-          "shap_value": -1.8659984743928533,
+          "shap_value": -1.8659984743928546,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1421,7 +1421,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 4.962844630259907,
-          "shap_value": 0.9444039756669783,
+          "shap_value": 0.944403975666978,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -1439,7 +1439,7 @@
           "feature": "data_trafic_volume_delta",
           "short_label": "Data usage, month over month",
           "value": -5.652489180268651,
-          "shap_value": -0.5033807000160563,
+          "shap_value": -0.503380700016056,
           "direction": "decreases_risk",
           "clause": "their data use has been dropping off recently",
           "category": "data"
@@ -1465,7 +1465,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 25.0,
-          "shap_value": -1.6604807089890896,
+          "shap_value": -1.6604807089890916,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1483,7 +1483,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.9191919191919192,
-          "shap_value": -0.827662887911735,
+          "shap_value": -0.8276628879117365,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -1501,7 +1501,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 13.287471801265733,
-          "shap_value": 0.5868720484189407,
+          "shap_value": 0.5868720484189409,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -1511,14 +1511,14 @@
     },
     {
       "subscriber_id": 2139792684,
-      "predicted_proba": 0.38014209127917764,
+      "predicted_proba": 0.3801420912791777,
       "risk_tier": "medium",
       "top_factors": [
         {
           "feature": "age",
           "short_label": "Age",
           "value": 51.0,
-          "shap_value": -1.849669233736446,
+          "shap_value": -1.8496692337364484,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1554,7 +1554,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.02981651376146789,
-          "shap_value": -0.40714812329802685,
+          "shap_value": -0.4071481232980256,
           "direction": "decreases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -1580,7 +1580,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 69.0,
-          "shap_value": -1.9775887608979172,
+          "shap_value": -1.9775887608979186,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1589,7 +1589,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 24.032761746698274,
-          "shap_value": -1.793303930110617,
+          "shap_value": -1.7933039301106177,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -1607,7 +1607,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 149.0,
-          "shap_value": 1.5335777884273234,
+          "shap_value": 1.5335777884273256,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -1651,7 +1651,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 41.0,
-          "shap_value": -1.7145630884288297,
+          "shap_value": -1.7145630884288314,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1678,7 +1678,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 119.0,
-          "shap_value": -0.592520204923517,
+          "shap_value": -0.5925202049235145,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -1687,7 +1687,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.7647058823529411,
-          "shap_value": -0.48892642253517704,
+          "shap_value": -0.4889264225351784,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -1713,7 +1713,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 37.0,
-          "shap_value": -1.708654106608339,
+          "shap_value": -1.7086541066083374,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1784,7 +1784,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 53.0,
-          "shap_value": -1.45128309062673,
+          "shap_value": -1.4512830906267298,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1811,7 +1811,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 0.0,
-          "shap_value": 0.44273060270121556,
+          "shap_value": 0.44273060270121517,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -1821,7 +1821,7 @@
     },
     {
       "subscriber_id": 2179779242,
-      "predicted_proba": 0.17570466381108193,
+      "predicted_proba": 0.1757046638110819,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -1846,7 +1846,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 46.0,
-          "shap_value": 2.564897520194494,
+          "shap_value": 2.5648975201944944,
           "direction": "increases_risk",
           "clause": "they've been active quite recently",
           "category": "recency"
@@ -1864,7 +1864,7 @@
           "feature": "mou_onnet_delta",
           "short_label": "On-net minutes, month over month",
           "value": -7.273092595999522,
-          "shap_value": 0.8512150636098165,
+          "shap_value": 0.8512150636098164,
           "direction": "increases_risk",
           "clause": "their calling to other Ooredoo customers has been dropping off recently",
           "category": "voice"
@@ -1873,24 +1873,24 @@
           "feature": "age",
           "short_label": "Age",
           "value": 22.0,
-          "shap_value": -0.8043105866028067,
+          "shap_value": -0.8043105866028006,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
         }
       ],
-      "explanation": "This customer's estimated churn risk is elevated. The main reasons are that they recharge their account often, they've been active quite recently, and how much they recharge has been dropping recently. On the positive side, they typically recharge with larger amounts than most customers, which helps offset some of that risk. A proactive recharge reminder or a small top-up bonus could help re-engage them before they lapse. These are patterns associated with churn, not proven causes."
+      "explanation": "This customer's estimated churn risk is moderate. The main reasons are that they recharge their account often, they've been active quite recently, and how much they recharge has been dropping recently. On the positive side, they typically recharge with larger amounts than most customers, which helps offset some of that risk. A proactive recharge reminder or a small top-up bonus could help re-engage them before they lapse. These are patterns associated with churn, not proven causes."
     },
     {
       "subscriber_id": 2153539485,
-      "predicted_proba": 0.1634206565169673,
+      "predicted_proba": 0.16342065651696724,
       "risk_tier": "low",
       "top_factors": [
         {
           "feature": "age",
           "short_label": "Age",
           "value": 26.0,
-          "shap_value": -2.115059740384596,
+          "shap_value": -2.115059740384594,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -1926,7 +1926,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.05397390272835113,
-          "shap_value": -0.6246825403354856,
+          "shap_value": -0.6246825403354875,
           "direction": "decreases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -1935,13 +1935,13 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1686.0,
-          "shap_value": -0.6078481135818832,
+          "shap_value": -0.6078481135818835,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
         }
       ],
-      "explanation": "Right now, this customer's estimated risk of churning comes out elevated. That's mostly explained by the fact that they typically recharge with smaller amounts than most customers, they rarely call other Ooredoo customers, and they recharge their account less often than most customers. Working in the other direction, they're on the younger side of our customer base, which helps offset some of that risk. A proactive recharge reminder or a small top-up bonus could help re-engage them before they lapse. Note that these are patterns linked to churn, not confirmed reasons on their own."
+      "explanation": "Right now, this customer's estimated risk of churning comes out moderate. That's mostly explained by the fact that they typically recharge with smaller amounts than most customers, they rarely call other Ooredoo customers, and they recharge their account less often than most customers. Working in the other direction, they're on the younger side of our customer base, which helps offset some of that risk. A proactive recharge reminder or a small top-up bonus could help re-engage them before they lapse. Note that these are patterns linked to churn, not confirmed reasons on their own."
     },
     {
       "subscriber_id": 2155024529,
@@ -1961,7 +1961,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 47.0,
-          "shap_value": -1.3588528552667705,
+          "shap_value": -1.3588528552667678,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -1988,7 +1988,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1679.0,
-          "shap_value": -0.776933607032433,
+          "shap_value": -0.7769336070324334,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -2007,7 +2007,7 @@
     },
     {
       "subscriber_id": 2179274354,
-      "predicted_proba": 0.1084076503256224,
+      "predicted_proba": 0.10840765032562244,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -2023,7 +2023,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 63.0,
-          "shap_value": -1.5646825497313175,
+          "shap_value": -1.5646825497313193,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2032,7 +2032,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 101.0,
-          "shap_value": -1.1590604089472545,
+          "shap_value": -1.1590604089472516,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2041,7 +2041,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.900990099009901,
-          "shap_value": -1.0899403877632916,
+          "shap_value": -1.0899403877632934,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -2076,7 +2076,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -1.754403474790869,
+          "shap_value": -1.7544034747908708,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2094,7 +2094,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 111.0,
-          "shap_value": -0.9660297973845445,
+          "shap_value": -0.9660297973845421,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2121,7 +2121,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.7117117117117117,
-          "shap_value": -0.4141700818368433,
+          "shap_value": -0.4141700818368446,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -2131,7 +2131,7 @@
     },
     {
       "subscriber_id": 2140490780,
-      "predicted_proba": 0.08837338673393384,
+      "predicted_proba": 0.08837338673393388,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -2156,7 +2156,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 71.0,
-          "shap_value": -1.3681773352995457,
+          "shap_value": -1.368177335299547,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2183,7 +2183,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 2991.0,
-          "shap_value": -0.5044883891402,
+          "shap_value": -0.5044883891401999,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -2193,14 +2193,14 @@
     },
     {
       "subscriber_id": 2179211900,
-      "predicted_proba": 0.08835263643969946,
+      "predicted_proba": 0.08835263643969948,
       "risk_tier": "low",
       "top_factors": [
         {
           "feature": "age",
           "short_label": "Age",
           "value": 57.0,
-          "shap_value": -2.073449159090356,
+          "shap_value": -2.0734491590903583,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2218,7 +2218,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 107.0,
-          "shap_value": -0.9352007501036547,
+          "shap_value": -0.9352007501036518,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2245,7 +2245,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.7009345794392523,
-          "shap_value": -0.49320086713850164,
+          "shap_value": -0.493200867138503,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -2255,14 +2255,14 @@
     },
     {
       "subscriber_id": 2174025486,
-      "predicted_proba": 0.08738062009169931,
+      "predicted_proba": 0.08738062009169933,
       "risk_tier": "low",
       "top_factors": [
         {
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 21.109401824416423,
-          "shap_value": -2.174231084980494,
+          "shap_value": -2.1742310849804944,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -2307,7 +2307,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 449.0,
-          "shap_value": 0.48300874881784184,
+          "shap_value": 0.48300874881784156,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2333,7 +2333,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 39.0,
-          "shap_value": -1.7965019149411057,
+          "shap_value": -1.796501914941106,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2404,7 +2404,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 36.0,
-          "shap_value": -1.12754444400067,
+          "shap_value": -1.1275444440006723,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2422,7 +2422,7 @@
           "feature": "recharge_amount_delta",
           "short_label": "Recharge amount, month over month",
           "value": -6.90875477931522,
-          "shap_value": 0.8529766160469902,
+          "shap_value": 0.8529766160469903,
           "direction": "increases_risk",
           "clause": "how much they recharge has been dropping recently",
           "category": "recharge"
@@ -2431,7 +2431,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 91.0,
-          "shap_value": -0.5942882496794648,
+          "shap_value": -0.5942882496794646,
           "direction": "decreases_risk",
           "clause": "it's been a while since they were last active",
           "category": "recency"
@@ -2441,7 +2441,7 @@
     },
     {
       "subscriber_id": 2172997760,
-      "predicted_proba": 0.03885453531724895,
+      "predicted_proba": 0.038854535317248966,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -2466,7 +2466,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 33.0,
-          "shap_value": -1.6464464935437577,
+          "shap_value": -1.646446493543758,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2484,7 +2484,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 91.0,
-          "shap_value": -0.7692150021622108,
+          "shap_value": -0.7692150021622107,
           "direction": "decreases_risk",
           "clause": "it's been a while since they were last active",
           "category": "recency"
@@ -2503,7 +2503,7 @@
     },
     {
       "subscriber_id": 2172196016,
-      "predicted_proba": 0.032146502481351195,
+      "predicted_proba": 0.03214650248135118,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -2555,7 +2555,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 22.0,
-          "shap_value": -1.0360811078512056,
+          "shap_value": -1.0360811078512047,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2581,7 +2581,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Français",
-          "shap_value": -1.9922590225351928,
+          "shap_value": -1.9922590225351933,
           "direction": "decreases_risk",
           "clause": "their preferred language is French",
           "category": "demographic"
@@ -2599,7 +2599,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -1.5383799946904904,
+          "shap_value": -1.538375064150786,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2634,7 +2634,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -2.4892098305222183,
+          "shap_value": -2.489209830522219,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -2643,7 +2643,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 25.0,
-          "shap_value": -2.0402409987816856,
+          "shap_value": -2.0402409987816825,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2679,7 +2679,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.04929577464788732,
-          "shap_value": -0.6323292072872825,
+          "shap_value": -0.6323292072872845,
           "direction": "decreases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -2689,7 +2689,7 @@
     },
     {
       "subscriber_id": 2169661492,
-      "predicted_proba": 0.017123243493678747,
+      "predicted_proba": 0.01712324349367876,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -2714,7 +2714,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -0.8828243468387099,
+          "shap_value": -0.88282434683871,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -2741,7 +2741,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 711.0,
-          "shap_value": 0.3124037717850855,
+          "shap_value": 0.3124037717850854,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2776,7 +2776,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -1.405324612903766,
+          "shap_value": -1.4053375504789802,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2785,7 +2785,7 @@
           "feature": "recharge_amount_delta",
           "short_label": "Recharge amount, month over month",
           "value": 0.0,
-          "shap_value": -0.6425380274307875,
+          "shap_value": -0.6425377897979714,
           "direction": "decreases_risk",
           "clause": "how much they recharge has been going up recently",
           "category": "recharge"
@@ -2794,7 +2794,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 246.0,
-          "shap_value": 0.608778207566032,
+          "shap_value": 0.6087982806411969,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2820,7 +2820,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 18.0,
-          "shap_value": -2.4073039749422125,
+          "shap_value": -2.407303974942181,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -2838,7 +2838,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 108.0,
-          "shap_value": -1.4935136434448832,
+          "shap_value": -1.4935136434448948,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -2847,7 +2847,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.8425925925925926,
-          "shap_value": -1.3666971318948293,
+          "shap_value": -1.3666971318948564,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -2856,7 +2856,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 1.156571710684928,
+          "shap_value": 1.1565717106849278,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -2900,7 +2900,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 68.0,
-          "shap_value": -1.3208750705454044,
+          "shap_value": -1.3208750705454047,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2962,7 +2962,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 43.0,
-          "shap_value": -1.394119635758066,
+          "shap_value": -1.3941196357580659,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -2989,7 +2989,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 12.355569656676085,
-          "shap_value": 0.5160241973481535,
+          "shap_value": 0.5160241973481534,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -3006,7 +3006,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 20.83383274285271,
-          "shap_value": -3.000707194937482,
+          "shap_value": -3.0007071949374824,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -3015,7 +3015,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -1.9134521960535564,
+          "shap_value": -1.9134521960535567,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3033,7 +3033,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 4652.0,
-          "shap_value": -1.2709750949561196,
+          "shap_value": -1.2709750949561194,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -3068,7 +3068,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -2.342491336217765,
+          "shap_value": -2.3424913362177655,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -3077,7 +3077,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 25.0,
-          "shap_value": -2.1082532762031017,
+          "shap_value": -2.1082532762031025,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3104,7 +3104,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.04598281960586155,
-          "shap_value": -0.9294892946094333,
+          "shap_value": -0.9294892946094327,
           "direction": "decreases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -3113,7 +3113,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1979.0,
-          "shap_value": -0.9223203890226749,
+          "shap_value": -0.9223203890226748,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -3157,7 +3157,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -1.4723583893189214,
+          "shap_value": -1.4723583893189187,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3192,7 +3192,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 7.693481640835175,
-          "shap_value": -2.5823403310032864,
+          "shap_value": -2.582340331003286,
           "direction": "decreases_risk",
           "clause": "they typically recharge with larger amounts than most customers",
           "category": "recharge"
@@ -3201,7 +3201,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 21.520725148350824,
-          "shap_value": -1.1000251228452527,
+          "shap_value": -1.1000251228452531,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -3210,7 +3210,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 41.0,
-          "shap_value": -1.0390081022270936,
+          "shap_value": -1.0390081022270938,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3228,7 +3228,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 139.0,
-          "shap_value": 1.0145628355572842,
+          "shap_value": 1.0145628355572855,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -3254,7 +3254,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 24.59711619697754,
-          "shap_value": -3.26628948504673,
+          "shap_value": -3.266289485046731,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -3263,7 +3263,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 66.0,
-          "shap_value": -2.4643944064053454,
+          "shap_value": -2.464394406405346,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3334,7 +3334,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 44.0,
-          "shap_value": -1.1204999646285834,
+          "shap_value": -1.120499964628581,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3361,7 +3361,7 @@
           "feature": "marital_status",
           "short_label": "Marital status",
           "value": "Marie",
-          "shap_value": -0.538110561637557,
+          "shap_value": -0.5381105616375571,
           "direction": "decreases_risk",
           "clause": "they're registered as married",
           "category": "demographic"
@@ -3378,7 +3378,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 36.0,
-          "shap_value": -2.84086174498049,
+          "shap_value": -2.840861744980489,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -3387,7 +3387,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 44.0,
-          "shap_value": -1.6019580739775583,
+          "shap_value": -1.6019580739775587,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3414,7 +3414,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 2.5277777777777777,
-          "shap_value": -0.8235194587064144,
+          "shap_value": -0.8235194587064151,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -3476,7 +3476,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -0.8221530397865027,
+          "shap_value": -0.8221530397865029,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3511,7 +3511,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -2.134395481193448,
+          "shap_value": -2.1343954811934482,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -3520,7 +3520,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 62.0,
-          "shap_value": -1.3457641316724482,
+          "shap_value": -1.3457641316724485,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3538,7 +3538,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 0.8424471756011864,
+          "shap_value": 0.8424471756011863,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -3591,7 +3591,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.1031536264905877,
+          "shap_value": -1.1031536264905901,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3626,7 +3626,7 @@
           "feature": "total_data_revenu_amount_mean",
           "short_label": "Data spend",
           "value": 9.798182590890704,
-          "shap_value": -1.713841741085263,
+          "shap_value": -1.7138417410852629,
           "direction": "decreases_risk",
           "clause": "they spend a good amount on data",
           "category": "data"
@@ -3635,7 +3635,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -1.6746325254495156,
+          "shap_value": -1.6746325254495154,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -3644,7 +3644,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.443909388773974,
-          "shap_value": -1.2885341888886395,
+          "shap_value": -1.2885341888886392,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -3653,7 +3653,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 0.0,
-          "shap_value": 1.0308865472840065,
+          "shap_value": 1.0308865472840067,
           "direction": "increases_risk",
           "clause": "they typically recharge with smaller amounts than most customers",
           "category": "recharge"
@@ -3662,7 +3662,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 62.0,
-          "shap_value": 0.7033332190503039,
+          "shap_value": 0.7033332190503042,
           "direction": "increases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3706,7 +3706,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 38.0,
-          "shap_value": 1.4117856345302555,
+          "shap_value": 1.4117856345302557,
           "direction": "increases_risk",
           "clause": "they've been active quite recently",
           "category": "recency"
@@ -3715,7 +3715,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.2856264900486765,
+          "shap_value": -1.2856264900486771,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3724,7 +3724,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 20.68766795317471,
-          "shap_value": -0.7144861082155581,
+          "shap_value": -0.7144861082155586,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -3750,7 +3750,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 7.601402334583733,
-          "shap_value": -2.7837332371151393,
+          "shap_value": -2.7837332371151398,
           "direction": "decreases_risk",
           "clause": "they typically recharge with larger amounts than most customers",
           "category": "recharge"
@@ -3759,7 +3759,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 36.0,
-          "shap_value": -0.9304148858524076,
+          "shap_value": -0.9304148858524072,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3777,7 +3777,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 3.4339872044851463,
-          "shap_value": -0.7019758944240794,
+          "shap_value": -0.7019758944240795,
           "direction": "decreases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -3821,7 +3821,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -1.2482002896341495,
+          "shap_value": -1.2482002896341509,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -3839,7 +3839,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 0.818499680884013,
+          "shap_value": 0.8184996808840129,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -3848,7 +3848,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 2486.0,
-          "shap_value": -0.5970555694176065,
+          "shap_value": -0.5970555694176063,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -3892,7 +3892,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -0.9407438353402254,
+          "shap_value": -0.9407438353402255,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -3936,7 +3936,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 32.0,
-          "shap_value": -3.377878314560174,
+          "shap_value": -3.377878314560173,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -3945,7 +3945,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 2.84375,
-          "shap_value": -1.4494283975985218,
+          "shap_value": -1.4494283975985225,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -3972,7 +3972,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 47.0,
-          "shap_value": -0.8925185930776856,
+          "shap_value": -0.8925185930776857,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4025,7 +4025,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 44.0,
-          "shap_value": -0.8796405016209619,
+          "shap_value": -0.8796405016209616,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4087,7 +4087,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 46.0,
-          "shap_value": -0.9956940171073223,
+          "shap_value": -0.9956940171073241,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4131,7 +4131,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 88.0,
-          "shap_value": -1.4738351404770318,
+          "shap_value": -1.4738351404770333,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4158,7 +4158,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 2074.0,
-          "shap_value": -0.5237633703101415,
+          "shap_value": -0.5237633703101413,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -4202,7 +4202,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 24.0,
-          "shap_value": -1.674688838366742,
+          "shap_value": -1.6746888383667433,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -4211,7 +4211,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 22.582607649634323,
-          "shap_value": -0.9213309572440387,
+          "shap_value": -0.9213309572440394,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -4220,7 +4220,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 60.0,
-          "shap_value": 0.7639079092808457,
+          "shap_value": 0.7639079092808478,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -4264,7 +4264,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 65.0,
-          "shap_value": -1.5453028331296739,
+          "shap_value": -1.5453028331296765,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4282,7 +4282,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 3088.0,
-          "shap_value": -0.7210415104273205,
+          "shap_value": -0.72104151042732,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -4291,7 +4291,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 91.0,
-          "shap_value": -0.6383682719353719,
+          "shap_value": -0.6383682719353718,
           "direction": "decreases_risk",
           "clause": "it's been a while since they were last active",
           "category": "recency"
@@ -4326,7 +4326,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -1.2527568212593243,
+          "shap_value": -1.2527568212593245,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4344,7 +4344,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 24.155663156104385,
-          "shap_value": -1.1523263346643764,
+          "shap_value": -1.1523263346643768,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -4397,7 +4397,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 26.0,
-          "shap_value": -1.015378293555396,
+          "shap_value": -1.0153782935553968,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -4406,7 +4406,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 0.0,
-          "shap_value": 0.9154867182259772,
+          "shap_value": 0.915486718225977,
           "direction": "increases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -4415,7 +4415,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 4092.0,
-          "shap_value": -0.6439406982467071,
+          "shap_value": -0.6439406982467069,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -4459,7 +4459,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 43.0,
-          "shap_value": -0.9501450469347421,
+          "shap_value": -0.950145046934742,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4494,7 +4494,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 7.444833273892193,
-          "shap_value": -1.973682830546178,
+          "shap_value": -1.9736828305461775,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -4521,7 +4521,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.1025792464834252,
+          "shap_value": -1.1025792464834272,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -4539,7 +4539,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 2390.0,
-          "shap_value": -0.6694913374349893,
+          "shap_value": -0.6694913374349891,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -4574,7 +4574,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 87.0,
-          "shap_value": -1.9648354505841403,
+          "shap_value": -1.964833491319389,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4601,7 +4601,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 0.0,
-          "shap_value": 0.9013631722399731,
+          "shap_value": 0.9013631722399733,
           "direction": "increases_risk",
           "clause": "they typically recharge with smaller amounts than most customers",
           "category": "recharge"
@@ -4645,7 +4645,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 7082.0,
-          "shap_value": -0.7391251984055791,
+          "shap_value": -0.739125198405579,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -4663,7 +4663,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 71.0,
-          "shap_value": -0.5495113572047137,
+          "shap_value": -0.5495113572047131,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4707,7 +4707,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 50.0,
-          "shap_value": -0.8618204369884591,
+          "shap_value": -0.8618204369884601,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4725,7 +4725,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 5.111987788356544,
-          "shap_value": -0.6387144677315593,
+          "shap_value": -0.6387144677315594,
           "direction": "decreases_risk",
           "clause": "they rarely call other Ooredoo customers",
           "category": "voice"
@@ -4769,7 +4769,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 48.0,
-          "shap_value": -0.7890721963248539,
+          "shap_value": -0.789072196324854,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4822,7 +4822,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 22.0,
-          "shap_value": -1.678551037292033,
+          "shap_value": -1.6785510372920087,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -4849,7 +4849,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.5909090909090909,
-          "shap_value": -0.46212089893815345,
+          "shap_value": -0.4621208989382113,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -4884,7 +4884,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 55.0,
-          "shap_value": 1.071086397694282,
+          "shap_value": 1.0710863976942846,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -4902,7 +4902,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 51.0,
-          "shap_value": -0.7807704792192662,
+          "shap_value": -0.780770479219268,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -4955,7 +4955,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 41.0,
-          "shap_value": -0.7812227379500364,
+          "shap_value": -0.7812227379500379,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -4964,7 +4964,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 67.0,
-          "shap_value": 0.771378522538307,
+          "shap_value": 0.7713785225383097,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -5008,7 +5008,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 53.0,
-          "shap_value": -1.0775140566910677,
+          "shap_value": -1.0775140566910701,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5035,7 +5035,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 91.0,
-          "shap_value": -0.43894265070735394,
+          "shap_value": -0.43894265070735383,
           "direction": "decreases_risk",
           "clause": "it's been a while since they were last active",
           "category": "recency"
@@ -5079,7 +5079,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 186.0,
-          "shap_value": 1.3656297802289277,
+          "shap_value": 1.36562936879567,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -5150,7 +5150,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 7071.0,
-          "shap_value": -1.0778905192937651,
+          "shap_value": -1.0778905192937647,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -5185,7 +5185,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 12.0,
-          "shap_value": -1.847443265235753,
+          "shap_value": -1.8474432652357506,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -5194,7 +5194,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 7.583333333333333,
-          "shap_value": -1.601466840881311,
+          "shap_value": -1.6014668408813129,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -5212,7 +5212,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -0.9748727791513433,
+          "shap_value": -0.9748727791513444,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5274,7 +5274,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 562.0,
-          "shap_value": 0.6229350124281798,
+          "shap_value": 0.6229350124281797,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -5283,7 +5283,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 48.0,
-          "shap_value": -0.5630945249439666,
+          "shap_value": -0.5630945249439662,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5300,7 +5300,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Français",
-          "shap_value": -2.529369266864366,
+          "shap_value": -2.529369266864367,
           "direction": "decreases_risk",
           "clause": "their preferred language is French",
           "category": "demographic"
@@ -5327,7 +5327,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.33527563972927,
+          "shap_value": -1.335273680464519,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5380,7 +5380,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 53.0,
-          "shap_value": -0.942012861216857,
+          "shap_value": -0.9420128612168587,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5433,7 +5433,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 29.0,
-          "shap_value": -1.5465995377449215,
+          "shap_value": -1.5465995377449198,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5495,7 +5495,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 39.0,
-          "shap_value": -1.5605970020287825,
+          "shap_value": -1.560597002028783,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5522,7 +5522,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 7205.0,
-          "shap_value": -0.8550516064464511,
+          "shap_value": -0.8550516064464507,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -5531,7 +5531,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Français",
-          "shap_value": -0.8403854625027063,
+          "shap_value": -0.8403854625027062,
           "direction": "decreases_risk",
           "clause": "their preferred language is French",
           "category": "demographic"
@@ -5584,7 +5584,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 47.0,
-          "shap_value": -0.5178298330241836,
+          "shap_value": -0.5178298330241834,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5619,7 +5619,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 74.0,
-          "shap_value": -2.161195700257102,
+          "shap_value": -2.161195700257104,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5637,7 +5637,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 25.25787379063052,
-          "shap_value": -1.611885643976234,
+          "shap_value": -1.6118856439762335,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -5655,7 +5655,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 0.0,
-          "shap_value": 0.8823450161719345,
+          "shap_value": 0.8823450161719347,
           "direction": "increases_risk",
           "clause": "they typically recharge with smaller amounts than most customers",
           "category": "recharge"
@@ -5681,7 +5681,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 7.479299637782834,
-          "shap_value": -1.6409410890249296,
+          "shap_value": -1.6409410890249294,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -5690,7 +5690,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -0.8848786821538606,
+          "shap_value": -0.8848786821538607,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5717,7 +5717,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.01432394144498662,
-          "shap_value": 0.5277528907357831,
+          "shap_value": 0.5277528907357827,
           "direction": "increases_risk",
           "clause": "they've stayed active relative to how long they've been a customer",
           "category": "recency"
@@ -5752,7 +5752,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 21.0,
-          "shap_value": -1.7612393665277835,
+          "shap_value": -1.7612374072630324,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5805,7 +5805,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 73.0,
-          "shap_value": -1.304080867727372,
+          "shap_value": -1.3040808677273725,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -5832,7 +5832,7 @@
           "feature": "recharge_amount_mean",
           "short_label": "Recharge amount",
           "value": 7.228388451573604,
-          "shap_value": -0.6344271431876384,
+          "shap_value": -0.6344271431876382,
           "direction": "decreases_risk",
           "clause": "they typically recharge with smaller amounts than most customers",
           "category": "recharge"
@@ -5867,7 +5867,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 26.0,
-          "shap_value": -1.675442477250864,
+          "shap_value": -1.6754424772508656,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5894,7 +5894,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 58.0,
-          "shap_value": 0.8937290515370809,
+          "shap_value": 0.893729051537083,
           "direction": "increases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -5903,7 +5903,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 20.053979836603446,
-          "shap_value": -0.7208958467343921,
+          "shap_value": -0.7208958467343928,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -5929,7 +5929,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 23.0,
-          "shap_value": -1.6409025383701745,
+          "shap_value": -1.640902538370175,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -5982,7 +5982,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 21.0,
-          "shap_value": -2.036273233746205,
+          "shap_value": -2.0362732337462033,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -6000,7 +6000,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 4.333333333333333,
-          "shap_value": -1.8229572280183477,
+          "shap_value": -1.8229572280183495,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -6018,7 +6018,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -1.2850033829873002,
+          "shap_value": -1.2850033829873018,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6071,7 +6071,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 34.0,
-          "shap_value": -0.6700732531225089,
+          "shap_value": -0.670073253122509,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6089,7 +6089,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 5421.0,
-          "shap_value": -0.5343661770651671,
+          "shap_value": -0.5343661770651669,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -6124,7 +6124,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 57.0,
-          "shap_value": -1.0879265600707184,
+          "shap_value": -1.0879265600707202,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6142,7 +6142,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 3740.0,
-          "shap_value": -0.5311682994362067,
+          "shap_value": -0.5311682994362064,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -6186,7 +6186,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 30.0,
-          "shap_value": -1.3121477197885176,
+          "shap_value": -1.312147719788518,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6248,7 +6248,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 49.0,
-          "shap_value": -1.199687298861677,
+          "shap_value": -1.1996872988616771,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6266,7 +6266,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 18.064369926568656,
-          "shap_value": -0.5783657914616418,
+          "shap_value": -0.578365791461642,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -6310,7 +6310,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 36.0,
-          "shap_value": -0.901673328326042,
+          "shap_value": -0.9016733283260434,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6328,7 +6328,7 @@
           "feature": "days_since_last_call",
           "short_label": "Time since last activity",
           "value": 91.0,
-          "shap_value": -0.27916894747466287,
+          "shap_value": -0.27916894747466275,
           "direction": "decreases_risk",
           "clause": "it's been a while since they were last active",
           "category": "recency"
@@ -6372,7 +6372,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 50.0,
-          "shap_value": -0.8017451546839398,
+          "shap_value": -0.80174515468394,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6381,7 +6381,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 20.741746365655285,
-          "shap_value": -0.7988587262753621,
+          "shap_value": -0.7988587262753626,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -6390,7 +6390,7 @@
           "feature": "marital_status",
           "short_label": "Marital status",
           "value": "Marie",
-          "shap_value": -0.7756607917754214,
+          "shap_value": -0.7756607917754215,
           "direction": "decreases_risk",
           "clause": "they're registered as married",
           "category": "demographic"
@@ -6443,7 +6443,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 38.0,
-          "shap_value": -0.8310459465469423,
+          "shap_value": -0.8310459465469421,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6496,7 +6496,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.637816633739977,
-          "shap_value": -1.535239371333408,
+          "shap_value": -1.5352393713334076,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -6514,7 +6514,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 57.0,
-          "shap_value": -0.8134080895798647,
+          "shap_value": -0.8134080895798645,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6567,7 +6567,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -0.837364986784124,
+          "shap_value": -0.8373649867841236,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6691,7 +6691,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 23.0,
-          "shap_value": -1.2227525921217064,
+          "shap_value": -1.2227506328569557,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6744,7 +6744,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 93.0,
-          "shap_value": -1.576444177081807,
+          "shap_value": -1.5764441770818074,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6806,7 +6806,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 82.0,
-          "shap_value": -1.4629555597105017,
+          "shap_value": -1.4629555597105035,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6868,7 +6868,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 25.0,
-          "shap_value": -1.5849332092884165,
+          "shap_value": -1.5849332092884143,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -6886,7 +6886,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -0.9376915700063091,
+          "shap_value": -0.937691570006309,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -6912,7 +6912,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 77.0,
-          "shap_value": -3.1971141881007807,
+          "shap_value": -3.1971141881007825,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -6939,7 +6939,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 24.871328405459806,
-          "shap_value": -2.0098706712152725,
+          "shap_value": -2.009870671215272,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -7010,7 +7010,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 20.0,
-          "shap_value": -1.0886323431423253,
+          "shap_value": -1.0886323431423226,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7019,7 +7019,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 22.71400431203631,
-          "shap_value": -0.5839594777426111,
+          "shap_value": -0.5839594777426134,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -7029,7 +7029,7 @@
     },
     {
       "subscriber_id": 2180155876,
-      "predicted_proba": 2.1153207798115202e-06,
+      "predicted_proba": 2.1153207798115236e-06,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -7045,7 +7045,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 21.0,
-          "shap_value": -1.5663658493671535,
+          "shap_value": -1.566365849367149,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7054,7 +7054,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 18.0,
-          "shap_value": -1.3575657905975798,
+          "shap_value": -1.3575657905975724,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -7081,7 +7081,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 22.375370883335542,
-          "shap_value": -0.6616249439274763,
+          "shap_value": -0.6616249439274808,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -7196,7 +7196,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 36.0,
-          "shap_value": -0.8620334445047648,
+          "shap_value": -0.8620334445047647,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7258,7 +7258,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1595.0,
-          "shap_value": -0.5741102774634148,
+          "shap_value": -0.574110277463415,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -7267,7 +7267,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 71.0,
-          "shap_value": -0.40884937016265777,
+          "shap_value": -0.40884937016265815,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7320,7 +7320,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 20.0,
-          "shap_value": -1.2881752314322112,
+          "shap_value": -1.2881752314321868,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7373,7 +7373,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 21.470543277000207,
-          "shap_value": -0.8419100924327643,
+          "shap_value": -0.8419100924327642,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -7382,7 +7382,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 54.0,
-          "shap_value": -0.782622612083891,
+          "shap_value": -0.7826226120838907,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7391,7 +7391,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1669.0,
-          "shap_value": -0.6756109943698593,
+          "shap_value": -0.6756109943698596,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -7444,7 +7444,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 53.0,
-          "shap_value": -0.7688194922311474,
+          "shap_value": -0.7688194922311493,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7497,7 +7497,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 29.0,
-          "shap_value": -1.3354978633598236,
+          "shap_value": -1.335497863359824,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7550,7 +7550,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.336400171636916,
-          "shap_value": -1.7826854541377255,
+          "shap_value": -1.782685454137725,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -7568,7 +7568,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 21.997166495067084,
-          "shap_value": -0.6680706806466234,
+          "shap_value": -0.6680706806466232,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -7577,7 +7577,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 3145.0,
-          "shap_value": -0.6644643341033056,
+          "shap_value": -0.6644643341033055,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -7621,7 +7621,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 49.0,
-          "shap_value": -0.6448510250668835,
+          "shap_value": -0.6448510250668852,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7665,7 +7665,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.27902652976463,
-          "shap_value": -1.8394072889286568,
+          "shap_value": -1.8394072889286566,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -7692,7 +7692,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 44.0,
-          "shap_value": -0.5457882973044684,
+          "shap_value": -0.5457882973044688,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7745,7 +7745,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 49.0,
-          "shap_value": -0.9768010737917234,
+          "shap_value": -0.9768010737917238,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -7798,7 +7798,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.630611158451794,
-          "shap_value": -1.8315454404725338,
+          "shap_value": -1.8315454404725335,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -7816,7 +7816,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 34.0,
-          "shap_value": -0.57403406327658,
+          "shap_value": -0.5740340632765804,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7860,7 +7860,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 5.6875,
-          "shap_value": -1.003781479812495,
+          "shap_value": -1.0037814798124955,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -7869,7 +7869,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 16.0,
-          "shap_value": -1.000753136411749,
+          "shap_value": -1.0007531364117477,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -7897,7 +7897,7 @@
     },
     {
       "subscriber_id": 2180269084,
-      "predicted_proba": 1.1876118131052598e-06,
+      "predicted_proba": 1.1876118131052577e-06,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -7913,7 +7913,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 20.0,
-          "shap_value": -1.6976206784805004,
+          "shap_value": -1.697620678480495,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -7993,7 +7993,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.696709355308183,
-          "shap_value": -1.5123262482825695,
+          "shap_value": -1.5123262482825692,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8002,7 +8002,7 @@
           "feature": "marital_status",
           "short_label": "Marital status",
           "value": "Marie",
-          "shap_value": -0.6999727920614683,
+          "shap_value": -0.6999727920614685,
           "direction": "decreases_risk",
           "clause": "they're registered as married",
           "category": "demographic"
@@ -8011,7 +8011,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 35.0,
-          "shap_value": -0.6723866761134859,
+          "shap_value": -0.6723866761134878,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8037,7 +8037,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.798303718484979,
-          "shap_value": -1.8016498365683116,
+          "shap_value": -1.8016498365683113,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8055,7 +8055,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 44.0,
-          "shap_value": -0.7668206966797633,
+          "shap_value": -0.7668206966797636,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8064,7 +8064,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 3134.0,
-          "shap_value": -0.5477925474578175,
+          "shap_value": -0.547792547457817,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -8108,7 +8108,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.620892519132905,
-          "shap_value": -1.9548758540457614,
+          "shap_value": -1.9548758540457611,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8135,7 +8135,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 46.0,
-          "shap_value": -0.6449836523415574,
+          "shap_value": -0.644983652341559,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8188,7 +8188,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 76.0,
-          "shap_value": -1.2863660545823945,
+          "shap_value": -1.2863660545823947,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8241,7 +8241,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 29.0,
-          "shap_value": -1.0748002304379114,
+          "shap_value": -1.0748002304379132,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8259,7 +8259,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 0.0,
-          "shap_value": 0.26740585949997425,
+          "shap_value": 0.267405859499974,
           "direction": "increases_risk",
           "clause": "their mobile data use has been unusually low",
           "category": "data"
@@ -8285,7 +8285,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.083637203141548,
-          "shap_value": -1.9092370805612833,
+          "shap_value": -1.909237080561283,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8303,7 +8303,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 21.0,
-          "shap_value": -1.314601251686344,
+          "shap_value": -1.3146012516863421,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8321,7 +8321,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 1859.0,
-          "shap_value": -0.677984602369157,
+          "shap_value": -0.6779846023691578,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -8331,7 +8331,7 @@
     },
     {
       "subscriber_id": 2136981615,
-      "predicted_proba": 6.987230380849896e-07,
+      "predicted_proba": 6.987230380849871e-07,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -8356,7 +8356,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.362846843690951,
-          "shap_value": -1.8750389136040315,
+          "shap_value": -1.8750389136040313,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8365,7 +8365,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 56.0,
-          "shap_value": -1.004210729799944,
+          "shap_value": -1.004210729799943,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8409,7 +8409,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.488999457045455,
-          "shap_value": -1.7369176421320318,
+          "shap_value": -1.7369176421320316,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8427,7 +8427,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 32.0,
-          "shap_value": -1.047519364571159,
+          "shap_value": -1.0475193645711582,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8480,7 +8480,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 42.0,
-          "shap_value": -0.8381424272201295,
+          "shap_value": -0.83814242722013,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8604,7 +8604,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.63007534847291,
-          "shap_value": -1.926608201718402,
+          "shap_value": -1.9266082017184019,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8622,7 +8622,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 21.071570353447548,
-          "shap_value": -0.9928611815966218,
+          "shap_value": -0.9928611815966216,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -8631,7 +8631,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 33.0,
-          "shap_value": -0.7925994111933377,
+          "shap_value": -0.7925994111933398,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8641,7 +8641,7 @@
     },
     {
       "subscriber_id": 2160182571,
-      "predicted_proba": 5.398932052543568e-07,
+      "predicted_proba": 5.398932052543559e-07,
       "risk_tier": "low",
       "top_factors": [
         {
@@ -8693,7 +8693,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 20.933962987366918,
-          "shap_value": -0.6549109739408747,
+          "shap_value": -0.6549109739408749,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -8728,7 +8728,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.420641815277095,
-          "shap_value": -1.2968728041747917,
+          "shap_value": -1.2968728041747914,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8737,7 +8737,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 4011.0,
-          "shap_value": -1.2502115855634663,
+          "shap_value": -1.2502115855634637,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -8790,7 +8790,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 86.0,
-          "shap_value": -1.6865209098348548,
+          "shap_value": -1.686520909834857,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8799,7 +8799,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 97.0,
-          "shap_value": -0.8215186913265398,
+          "shap_value": -0.8215186913265375,
           "direction": "decreases_risk",
           "clause": "they're still relatively new to us, without much history yet",
           "category": "tenure"
@@ -8808,7 +8808,7 @@
           "feature": "recency_tenure_ratio",
           "short_label": "Inactivity relative to tenure",
           "value": 0.9381443298969072,
-          "shap_value": -0.44999061433006277,
+          "shap_value": -0.4499906143300642,
           "direction": "decreases_risk",
           "clause": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
           "category": "recency"
@@ -8817,7 +8817,7 @@
           "feature": "mou_onnet_delta",
           "short_label": "On-net minutes, month over month",
           "value": -0.18883836563544065,
-          "shap_value": 0.2523809504827206,
+          "shap_value": 0.25238095048272047,
           "direction": "increases_risk",
           "clause": "their calling to other Ooredoo customers has been dropping off recently",
           "category": "voice"
@@ -8852,7 +8852,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.80131894766524,
-          "shap_value": -1.5443854445387244,
+          "shap_value": -1.5443854445387242,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -8861,7 +8861,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 28.0,
-          "shap_value": -1.2649856978740541,
+          "shap_value": -1.2649856978740561,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -8941,7 +8941,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 54.0,
-          "shap_value": -0.4872968935058972,
+          "shap_value": -0.487296893505899,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -8994,7 +8994,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 21.0,
-          "shap_value": -1.5115236096839084,
+          "shap_value": -1.5115236096839073,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -9003,7 +9003,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 22.971793420628575,
-          "shap_value": -0.3347327478666604,
+          "shap_value": -0.33473274786666113,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -9029,7 +9029,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 7.2305631534092925,
-          "shap_value": -1.6743145891630435,
+          "shap_value": -1.6743145891630433,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9056,7 +9056,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 52.0,
-          "shap_value": -0.7599388241591792,
+          "shap_value": -0.7599388241591786,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -9100,7 +9100,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.48899431321796,
-          "shap_value": -1.7753612762544766,
+          "shap_value": -1.7753612762544764,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9118,7 +9118,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 3037.0,
-          "shap_value": -1.1858008659174306,
+          "shap_value": -1.18580086591743,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -9127,7 +9127,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 23.510983416987447,
-          "shap_value": -1.0991019633747634,
+          "shap_value": -1.0991019633747632,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"
@@ -9162,7 +9162,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 8.766550149546351,
-          "shap_value": -1.2203613556048705,
+          "shap_value": -1.2203613556048702,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9171,7 +9171,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 58.0,
-          "shap_value": -0.9229050414378251,
+          "shap_value": -0.9229050414378245,
           "direction": "decreases_risk",
           "clause": "they're on the older side of our customer base",
           "category": "demographic"
@@ -9189,7 +9189,7 @@
           "feature": "customer_language",
           "short_label": "Preferred language",
           "value": "Missing",
-          "shap_value": -0.7312706281905068,
+          "shap_value": -0.7312706281905069,
           "direction": "decreases_risk",
           "clause": "we don't have a preferred language on file for them",
           "category": "demographic"
@@ -9215,7 +9215,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 9.7925001243465,
-          "shap_value": -1.5582034058018968,
+          "shap_value": -1.5582034058018965,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9251,7 +9251,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 36.0,
-          "shap_value": -0.7910392337003926,
+          "shap_value": -0.7910392337003931,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -9286,7 +9286,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 10.047501312675033,
-          "shap_value": -1.386321844419659,
+          "shap_value": -1.3863218444196588,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9304,7 +9304,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 4727.0,
-          "shap_value": -1.1112970503356339,
+          "shap_value": -1.1112970503356332,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -9313,7 +9313,7 @@
           "feature": "age",
           "short_label": "Age",
           "value": 28.0,
-          "shap_value": -0.9111814698221403,
+          "shap_value": -0.9111814698221425,
           "direction": "decreases_risk",
           "clause": "they're on the younger side of our customer base",
           "category": "demographic"
@@ -9339,7 +9339,7 @@
           "feature": "tenure_days",
           "short_label": "Account tenure",
           "value": 7852.0,
-          "shap_value": -1.7728355304645476,
+          "shap_value": -1.772835530464554,
           "direction": "decreases_risk",
           "clause": "they've been a customer with us for a long time",
           "category": "tenure"
@@ -9348,7 +9348,7 @@
           "feature": "mou_onnet_mean",
           "short_label": "On-net calling minutes",
           "value": 7.208600337960199,
-          "shap_value": -1.5829065679332512,
+          "shap_value": -1.582906567933251,
           "direction": "decreases_risk",
           "clause": "they spend a lot of time calling other Ooredoo customers",
           "category": "voice"
@@ -9375,7 +9375,7 @@
           "feature": "data_trafic_volume_mean",
           "short_label": "Data usage volume",
           "value": 23.323576945744808,
-          "shap_value": -1.1163473079414405,
+          "shap_value": -1.11634730794144,
           "direction": "decreases_risk",
           "clause": "they use a large amount of mobile data",
           "category": "data"

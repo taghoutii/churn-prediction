@@ -17,7 +17,7 @@ live, per-request generation instead.
 Two different notions of "risk" are exported, deliberately kept separate:
 - risk_tier (low/medium/high, cut at 0.20/0.50): a general-purpose visual banding
   used for the signal-bar indicator and the overview distribution chart.
-- decision_threshold (0.16): the actual retention working threshold. Whether a
+- decision_threshold (0.19): the actual retention working threshold. Whether a
   given customer is "flagged" is NOT precomputed here -- the dashboard computes it
   client-side from predicted_proba vs. decision_threshold, so the UI can make the
   point explicit that probability and decision are two different things.
@@ -37,7 +37,7 @@ OUTPUT_PATH = PROJECT_ROOT / "dashboard" / "src" / "data" / "dashboardData.json"
 
 MODEL_VERSION = "lightgbm_v1"
 SNAPSHOT_DATE = "2024-12-01"
-DECISION_THRESHOLD = 0.16
+DECISION_THRESHOLD = 0.19
 
 RISK_TIER_LOW_MAX = 0.20
 RISK_TIER_MEDIUM_MAX = 0.50
