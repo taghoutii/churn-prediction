@@ -48,12 +48,10 @@ TOP_N_FACTORS = 6
 TOP_N_GLOBAL_DRIVERS = 10
 
 
-# ---------------------------------------------------------------------------
 # Plain-language feature knowledge -- the only place technical column names
 # are translated into business language. Used both for the "why this
 # customer is at risk" factor labels and for composing each customer's
 # explanation paragraph below.
-# ---------------------------------------------------------------------------
 FEATURE_META = {
     "recharge_amount_mean": {
         "short_label": "Recharge amount",

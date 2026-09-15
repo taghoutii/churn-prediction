@@ -10,20 +10,17 @@ from sklearn.metrics import brier_score_loss, confusion_matrix
 COST_RATIOS = [2, 5, 10]  # FN : FP 
 THRESHOLD_GRID = np.arange(0.05, 0.96, 0.01)
 
-#check whether model's predicted probabilities are trustworthy (calibrated) or not
 def get_calibration_data(y_true, y_proba, n_bins: int = 10):
     prob_true, prob_pred = calibration_curve(y_true, y_proba, n_bins=n_bins, strategy="uniform")
     brier = brier_score_loss(y_true, y_proba)
     return prob_true, prob_pred, brier
 
-#for one specific threshold, compute the confusion matrix and total cost based on FN and FP costs
 def compute_cost_at_threshold(y_true, y_proba, threshold: float, fn_cost: float, fp_cost: float) -> dict:
     y_pred = (y_proba >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
     total_cost = fn * fn_cost + fp * fp_cost
     return {"threshold": threshold, "tn": tn, "fp": fp, "fn": fn, "tp": tp, "total_cost": total_cost}
 
-#find one optimal threshold for a given FN:FP cost ratio
 def find_optimal_threshold(y_true, y_proba, fn_cost: float, fp_cost: float) -> pd.DataFrame:
     results = [compute_cost_at_threshold(y_true, y_proba, t, fn_cost, fp_cost) for t in THRESHOLD_GRID]
     return pd.DataFrame(results)

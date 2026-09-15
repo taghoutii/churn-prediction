@@ -19,8 +19,8 @@ def profile_dataframe(df: pd.DataFrame, name: str) -> None:
     print("\n--- null counts ---")
     print(df.isna().sum())
 
-#DDATE HANDLING
-#there are 2 diff formats of dates in the raw data: "01JAN2020:00:00:00.000" and 202001. The following functions parse these formats into pandas datetime objects.
+#DATE HANDLING
+#there are 2 diff date formats in the raw data ("01JAN2020:00:00:00.000" and 202001), hence 2 parsers
 def parse_sas_datetime(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, format=SAS_DATETIME_FMT, errors="coerce")
 
@@ -29,7 +29,6 @@ def parse_period(series: pd.Series) -> pd.Series:
     s = series.astype(str).str.replace("/", "", regex=False)
     return pd.to_datetime(s, format="%Y%m", errors="coerce")
 
-#scan every col to find date cols
 def find_candidate_date_columns(df: pd.DataFrame) -> tuple[list[str], list[str]]:
     period_cols = [c for c in df.columns if c.lower() in PERIOD_LIKE_NAMES]
     sas_cols = []
@@ -43,7 +42,6 @@ def find_candidate_date_columns(df: pd.DataFrame) -> tuple[list[str], list[str]]
             sas_cols.append(c)
     return sas_cols, period_cols
 
-#which % of cols parsed successfully as dates, and what is the range of those dates
 def profile_date_column(df: pd.DataFrame, col: str, parser) -> None:
     parsed = parser(df[col])
     n_total = len(df)
@@ -54,7 +52,7 @@ def profile_date_column(df: pd.DataFrame, col: str, parser) -> None:
         print(f"    range: {parsed.min()}  ->  {parsed.max()}")
 
 #CHURN LABEL ANALYSIS
-#check whether churn label is consistent with the dates in the churn table. For example, if a subscriber has a churn date, then the churn label should be "yes". If a subscriber has no churn date, then the churn label should be "no".
+#a churn_date should be present exactly when the label is "yes" -- check that assumption holds
 def audit_churn_relationship(df_churn: pd.DataFrame, sas_cols: list[str], label_col: str) -> pd.Series:
     print(f"  churn label unique values: {df_churn[label_col].unique()}")
     is_churn = df_churn[label_col].astype(str).str.strip().str.lower() == "yes"
@@ -66,7 +64,6 @@ def audit_churn_relationship(df_churn: pd.DataFrame, sas_cols: list[str], label_
     return is_churn
 
 #TENURE ANALYSIS
-#find any cols that look like they might be tenure-related and splits by churn / no churn to see if tenure is meaningful
 def find_tenure_like_columns(df: pd.DataFrame) -> list[str]:
     return [c for c in df.columns if any(p in c.lower() for p in TENURE_NAME_PATTERNS)]
 
@@ -103,7 +100,7 @@ def check_chronological_order(df: pd.DataFrame, earlier_col: str, later_col: str
           f"({violations.sum()/n_both:.2%} of rows with both dates present)")
 
 #INACTIVITY CHECKS
-#how long since last activity using a single global reference date (the max period in the monthly usage data)
+#uses a single global reference date (max period in monthly usage data), not per-subscriber
 def explore_inactivity_periods(df_churn: pd.DataFrame, is_churn: pd.Series, reference_date: pd.Timestamp) -> None:
     print(f"\n  Using reference_date = {reference_date} (max period observed in monthly usage data, exploratory only)")
 

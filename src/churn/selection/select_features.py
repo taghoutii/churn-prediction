@@ -8,15 +8,11 @@ from sklearn.inspection import permutation_importance
 
 from churn.selection.prepare import ID_AND_META_COLS
 
-# Lowered from 0.85: total_data_revenu_amount_mean and
-# revenu_furfait_data_dinar_mean sat at 0.823 -- just under the old cutoff,
-# both effectively saying "how much they spend on data" and splitting
-# explanatory credit between two near-duplicate features. Chose a lower
-# flat threshold over an importance-based tie-break (keep whichever of a
-# pair has higher importance) because that would need importance computed
-# on the FULL feature set before pruning, then again after -- more
-# restructuring for a small number of borderline pairs; simple threshold
-# change was the lower-risk option here.
+# Lowered from 0.85: total_data_revenu_amount_mean and revenu_furfait_data_dinar_mean
+# sat at 0.823 -- just under the old cutoff, both effectively "how much they spend on
+# data". Preferred over an importance-based tie-break (keep whichever of a pair ranks
+# higher), which would need importance computed twice (before and after pruning) for
+# a small number of borderline pairs -- a flat threshold was the lower-risk option.
 CORRELATION_THRESHOLD = 0.80
 
 

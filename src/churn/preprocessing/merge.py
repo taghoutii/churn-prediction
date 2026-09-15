@@ -50,7 +50,6 @@ def run_merge() -> None:
     print(f"subscriber_static: shape={static.shape}, unique subscribers={static['subscriber_id'].nunique()}")
     print(f"monthly_usage:     shape={usage.shape}, unique subscribers={usage['subscriber_id'].nunique()}")
 
-    # Sanity checks before writing to disk
     assert static["subscriber_id"].is_unique, "subscriber_static must have one row per subscriber"
     assert not usage.duplicated(subset=["subscriber_id", "period_date"]).any(), \
         "monthly_usage must have one row per subscriber-period"

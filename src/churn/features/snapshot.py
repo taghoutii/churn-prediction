@@ -154,9 +154,6 @@ def apply_log1p(features: pd.DataFrame) -> pd.DataFrame:
 
 
 def compute_label(
-    # Target definition:
-    # Predict whether an active subscriber at the snapshot date
-    # will churn within the next 90 days.    
     subscriber_static: pd.DataFrame, population: pd.DataFrame, snapshot_date: pd.Timestamp,
     window_days: int = PREDICTION_WINDOW_DAYS,
 ) -> pd.DataFrame:
@@ -200,7 +197,7 @@ def build_snapshot(monthly_usage: pd.DataFrame, subscriber_static: pd.DataFrame)
 
     features = compute_observation_features(monthly_usage, population, snapshot_date)
     features = add_recency_and_tenure_features(features, population, snapshot_date)
-    features = add_demographic_features(features, population)   # <-- new
+    features = add_demographic_features(features, population)
     features = apply_log1p(features)
 
     # Merged in AFTER apply_log1p -- see compute_delta_features' docstring

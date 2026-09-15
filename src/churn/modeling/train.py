@@ -92,12 +92,12 @@ def build_lightgbm() -> LGBMClassifier:
     LightGBM auto-detects pandas 'category' dtype columns and splits on
     them natively -- no extra constructor param needed."""
     return LGBMClassifier(
-        n_estimators=700,
+        n_estimators=500,
         max_depth=-1,
-        num_leaves=63,
+        num_leaves=127,
         learning_rate=0.1,
         subsample=0.7,
-        colsample_bytree=0.85,
+        colsample_bytree=0.7,
         random_state=RANDOM_STATE,
         n_jobs=-1,
         verbosity=-1,

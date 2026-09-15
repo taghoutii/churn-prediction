@@ -42,9 +42,6 @@ def _parse_period(series: pd.Series) -> pd.Series:
 
 
 def clean_sociodemo(df: pd.DataFrame) -> pd.DataFrame:
-    #drop rows with missing id
-    #convert subscriber_id to int64 
-    #check if age is within plausible range, if not set to NaN
     df = df.copy()
     df = df.dropna(subset=["subscriber_id"])
     df["subscriber_id"] = df["subscriber_id"].astype("int64")
@@ -64,11 +61,6 @@ def clean_sociodemo(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean_churn(df: pd.DataFrame) -> pd.DataFrame:
-    #drop rows with missing id
-    #convert subscriber_id to int64
-    #convert is_churn col to boolean 
-    #if churn = no, set churn_date to NaT
-    #drop SelectionProb and SamplingWeight columns
     df = df.copy()
     df = df.dropna(subset=["subscriber_id"])
     df["subscriber_id"] = df["subscriber_id"].astype("int64")
@@ -89,11 +81,9 @@ def clean_churn(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean_monthly_agg(df: pd.DataFrame) -> pd.DataFrame:
-    #convert period_id to period_date timestamp
-    #fill missing vals in activity/rev cols with 0.0 (no activity that month)
-    #null out physically-impossible mou values and implausible data_trafic_volume spikes
     df = df.copy()
     df["period_date"] = _parse_period(df["period_id"])
+    # missing values here mean no activity that month, not unknown -- 0.0 is a real value
     zero_fill_cols = ["data_trafic_volume", "total_data_revenu_amount", "total_voice_revenu_amount"]
     for col in zero_fill_cols:
         df[col] = df[col].fillna(0.0)
@@ -117,7 +107,6 @@ def clean_monthly_agg(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean_data_bundle(df: pd.DataFrame) -> pd.DataFrame:
-    #convert period_id to period_date timestamp
     df = df.copy()
     df["period_date"] = _parse_period(df["periode"])
     return df

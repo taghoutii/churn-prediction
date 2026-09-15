@@ -80,6 +80,15 @@ def compute_pca_projection(
           f"{len(valid)} subscribers (excluding {n_excluded} with missing values) ---")
     print(f"Variance explained: PC1={explained[0]:.1f}%, PC2={explained[1]:.1f}%, "
           f"total={sum(explained):.1f}%")
+
+    loadings = pd.DataFrame(pca.components_.T, index=present, columns=["PC1", "PC2"])
+    print("\n--- Component loadings (feature contribution, features already "
+          "standardized above so loadings are directly comparable) ---")
+    print("PC1, sorted by |loading|:")
+    print(loadings["PC1"].reindex(loadings["PC1"].abs().sort_values(ascending=False).index).round(3))
+    print("\nPC2, sorted by |loading|:")
+    print(loadings["PC2"].reindex(loadings["PC2"].abs().sort_values(ascending=False).index).round(3))
+
     return out, explained
 
 

@@ -2,10 +2,9 @@ import pandas as pd
 from churn.config import PROCESSED_DIR
 from churn.balancing.balance import compare_balancers, apply_balancing
 
-CHOSEN_METHOD = "smotenc"  # SMOTE -> SMOTENC once native categorical dtype columns
-                            # entered the feature set (plain SMOTE can't handle them);
-                            # SMOTE already won the original SMOTE-vs-ADASYN comparison,
-                            # so this isn't a re-evaluation of that choice
+CHOSEN_METHOD = "smotenc"  # SMOTE -> SMOTENC once native categorical columns entered the
+                            # feature set (plain SMOTE can't handle them); not a re-evaluation
+                            # of SMOTE vs ADASYN, which SMOTE already won
 
 
 def run() -> None:
