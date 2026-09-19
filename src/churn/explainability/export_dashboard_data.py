@@ -17,7 +17,7 @@ live, per-request generation instead.
 Two different notions of "risk" are exported, deliberately kept separate:
 - risk_tier (low/medium/high, cut at 0.20/0.50): a general-purpose visual banding
   used for the signal-bar indicator and the overview distribution chart.
-- decision_threshold (0.19): the actual retention working threshold. Whether a
+- decision_threshold (0.18): the actual retention working threshold. Whether a
   given customer is "flagged" is NOT precomputed here -- the dashboard computes it
   client-side from predicted_proba vs. decision_threshold, so the UI can make the
   point explicit that probability and decision are two different things.
@@ -37,7 +37,7 @@ OUTPUT_PATH = PROJECT_ROOT / "dashboard" / "src" / "data" / "dashboardData.json"
 
 MODEL_VERSION = "lightgbm_v1"
 SNAPSHOT_DATE = "2024-12-01"
-DECISION_THRESHOLD = 0.19
+DECISION_THRESHOLD = 0.18
 
 RISK_TIER_LOW_MAX = 0.20
 RISK_TIER_MEDIUM_MAX = 0.50
@@ -161,13 +161,12 @@ FEATURE_META = {
         "high": "their data package spend has been going up recently",
         "low": "their data package spend has been dropping recently",
     },
-    "recency_tenure_ratio": {
-        "short_label": "Inactivity relative to tenure",
-        "category": "recency",
-        "kind": "numeric",
-        "high": "they've gone quiet for a stretch that's long relative to how long they've been a customer",
-        "low": "they've stayed active relative to how long they've been a customer",
-    },
+    # recency_tenure_ratio used to have an entry here, but was found to be
+    # mechanically derived from tenure_days (Spearman -0.97) and to split
+    # tenure_days's SHAP importance with it rather than add independent
+    # signal -- removed from the modeling feature set entirely (see
+    # churn.features.snapshot). It never reaches this module, so there's
+    # nothing to describe here.
 
     # Phase 5: native categoricals -- one column per variable (no one-hot
     # dummies, so every actual category gets its own clause here, including

@@ -1,4 +1,5 @@
 import { LayoutDashboard, Users, Sliders } from "lucide-react";
+import ooredooLogo from "../assets/ooredoo-logo.png";
 
 const PAGES = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
@@ -29,15 +30,14 @@ export default function Nav({ page, onNavigate }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span
+          <img
+            src={ooredooLogo}
+            alt="Ooredoo logo"
             style={{
-              width: 30,
-              height: 30,
-              borderRadius: "50%",
-              background: "var(--color-brand)",
-              display: "inline-block",
+              height: 28,
+              width: "auto",
+              display: "block",
             }}
-            aria-hidden="true"
           />
           <span style={{ fontWeight: 700, fontSize: 16 }}>Ooredoo Churn Risk</span>
         </div>

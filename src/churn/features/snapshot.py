@@ -13,7 +13,6 @@ LOG1P_FEATURES = ["recharge_amount", "mou_onnet", "data_trafic_volume",
 
 DELTA_SOURCE_COLS = ["recharge_amount", "mou_onnet", "data_trafic_volume",
                       "total_data_revenu_amount", "revenu_furfait_data_dinar"]
-RECENCY_TENURE_RATIO_CAP = 10.0
 
 
 def get_active_population(subscriber_static: pd.DataFrame, snapshot_date: pd.Timestamp) -> pd.DataFrame:
@@ -66,16 +65,15 @@ def add_recency_and_tenure_features(
     df["days_since_last_call"] = df["days_since_last_call"].clip(upper=OBSERVATION_WINDOW_DAYS + 1)
     df["tenure_days"] = (snapshot_date - df["date_activation"]).dt.days
 
-    # Inactivity relative to the customer's OWN history, not absolute days --
-    # 30 days silent means something different for a 2-month-old account than
-    # a 3-year one. tenure_days is clipped to >=1 to avoid divide-by-zero for
-    # subscribers activated on the snapshot date itself, and the ratio is
-    # capped since a brand-new account with a long silence can otherwise
-    # produce an extreme outlier (days_since_last_call maxes at 91, so a
-    # 1-day-old account could otherwise score a ratio of 91).
-    df["recency_tenure_ratio"] = (
-        df["days_since_last_call"] / df["tenure_days"].clip(lower=1)
-    ).clip(upper=RECENCY_TENURE_RATIO_CAP)
+    # recency_tenure_ratio (days_since_last_call / tenure_days) used to be
+    # computed here too, as inactivity-relative-to-tenure. Removed: it's
+    # mechanically derived from tenure_days (Spearman -0.97 between the raw
+    # features), and SHAP diagnostics showed it was splitting tenure_days's
+    # true importance between the two nearly-redundant columns rather than
+    # adding independent signal (dropping it recovered +25% of tenure_days's
+    # mean|SHAP| with no meaningful cost to model performance -- see project
+    # notes; same class of problem as the earlier classe_anciennete removal,
+    # just via a formula instead of a bucketing).
 
     return df.drop(columns=["last_call_date", "date_activation"])
 
